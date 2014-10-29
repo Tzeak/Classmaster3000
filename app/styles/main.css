@@ -1,0 +1,132 @@
+/* Space out content a bit */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\000035}}
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\000039}}
+html, body {
+  height: 100%;
+  padding: 20px 0 0 0;
+  margin: 0;
+  overflow-x: hidden;
+  font-size: 12px;
+}
+
+/* Custom page header */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000318}}
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000322}}
+.container {
+  width: 100%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000325}}
+.btn {
+  background: #3498db;
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  border-radius: 16px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 20px 20px 20px 20px;
+  text-decoration: none;
+  outline: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000341}}
+.btn:hover {
+  background: #3cb0fd;
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000350}}
+.row {
+  width: 100%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000353}}
+.col {
+  width: 50%;
+  margin: 0 25%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000357}}
+.col-25 {
+  height: 100%;
+  width: 25%;
+  border-right: 1px solid #333;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000362}}
+.col-75 {
+  width: 75%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000365}}
+.classInput {
+  width: 50%;
+  margin: 15px 25%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000369}}
+.scheduleCol {
+  width: 50%;
+  margin: 0 auto;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000375}}
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  transition: all linear 0.5s;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000381}}
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity: 0;
+  max-height: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000388}}
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity: 1;
+  max-height: 40px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000392}}
+td {
+  padding-left: 10px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\0000395}}
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  background: #333;
+  color: white;
+  padding: 10px 20px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\00003105}}
+.classNames {
+  width: 100%;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/class2\/app\/styles\/main\.scss}line{font-family:\00003110}}
+.odd {
+  background: #aaddd4;
+  border: 0;
+}

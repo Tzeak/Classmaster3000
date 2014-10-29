@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-25">
+    <input type="text" class="classInput" ng-model="classFilter" placeholder="Filter AP classes" />
+    <div class="animate-repeat" ng-repeat="class in apclasses | filter:classFilter">
+      <button class="classNames" ng-class-odd="'odd'">{{class.name}}</button>
+    </div>
+  </div>
+  <div class="col-75">
+
+  </div>
+</div>

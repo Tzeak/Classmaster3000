@@ -14,6 +14,6 @@ run `npm install` and `bower install`
 this should intall all necessary packages
 
 next run `grunt serve`
-this should spin up a local server at `localhost:9000`
+this should spin up a local server at `localhost:9000` which you can navigate to in your browser
 
 any questions, let me know

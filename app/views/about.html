@@ -1,11 +1,42 @@
 <div class="row">
-  <div class="col-25">
+  <div class="col-25 cf">
     <input type="text" class="classInput" ng-model="classFilter" placeholder="Filter AP classes" />
     <div class="animate-repeat" ng-repeat="class in apclasses | filter:classFilter">
       <button class="classNames" ng-class-odd="'odd'">{{class.name}}</button>
     </div>
   </div>
-  <div class="col-75">
-
+  <div class="col-75 cf">
+        <table>
+          <tr>
+            <th>Fall</th>
+            <th>Winter</th>
+            <th>Spring</th>
+          </tr>
+          <tr>
+            <td>Critical Thinking &amp; Writing 1</td>
+            <td>Critical Thinking &amp; Writing 2</td>
+            <td>COEN 19 (Discrete Math)</td>
+          </tr>
+          <tr>
+            <td>Math 11</td>
+            <td>Math 12</td>
+            <td>Math 13</td>
+          </tr>
+          <tr>
+            <td>COEN 10</td>
+            <td>COEN 11</td>
+            <td>COEN 12</td>
+          </tr>
+          <tr>
+            <td>CHEM 11</td>
+            <td>PHYS 31</td>
+            <td>PHYS 32</td>
+          </tr>
+          <tr>
+            <td>ENGR 1</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
   </div>
 </div>

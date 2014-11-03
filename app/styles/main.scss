@@ -8,7 +8,7 @@
 
 html,body {
   height:100%;
-  padding:20px 0 0 0;
+  padding:0;
   margin:0;
   overflow-x:hidden;
   font-size:12px;
@@ -19,9 +19,31 @@ html,body {
   border-bottom: 1px solid #e5e5e5;
 }
 
+.nav{
+  li{
+    float:left;
+    list-style:none;
+    padding-left:10px;
+    a{
+      text-decoration: none;
+    }
+  }
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
 .container{
   width:100%;
 }
+
 .btn {
   background: #3498db;
   background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
@@ -56,11 +78,16 @@ html,body {
 }
 .col-25{
   height:100%;
-  width:25%;
+  width:24%;
   border-right:1px solid #333;
+  margin:0;
+  padding:0;
+  float:left;
 }
 .col-75{
   width:75%;
+  margin:0;
+  padding:0;
 }
 .classInput{
   width:50%;
@@ -89,9 +116,7 @@ html,body {
   opacity:1;
   max-height:40px;
 }
-td{
-  padding-left:10px;
-}
+
 .footer{
   position:fixed;
   bottom:0;
@@ -109,5 +134,5 @@ td{
   border:0;
 }
 .odd{
-  background:#aaddd4;
+  background:#fff;
 }

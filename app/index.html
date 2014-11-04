@@ -12,6 +12,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
 
@@ -24,20 +25,9 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <div class="header">
-        <ul class="nav cf">
-          <li><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#/schedule">Schedule</a></li>
-        </ul>
-      </div>
 
-      <div ng-view></div>
+      <div ng-view="" class="view-animate"></div>
 
-      <div class="footer">
-        <p>&copy; Ace's High<br>
-        Kyle Alwyn, Roshan Ramankutty, Taylor Roden, Astha Singh</p>
-      </div>
     </div>
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>

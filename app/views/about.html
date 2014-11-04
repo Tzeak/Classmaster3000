@@ -1,11 +1,25 @@
+<div class="header">
+    <ul class="nav cf">
+      <li><a href="#"><i class="fa fa-chevron-left"></i> Back</a></li>
+    </ul>
+</div>
 <div class="row">
   <div class="col-25 cf">
+    <h4 style="text-align:center">Check the boxes that you have valid credit for *</h4>
     <input type="text" class="classInput" ng-model="classFilter" placeholder="Filter AP classes" />
-    <div class="animate-repeat" ng-repeat="class in apclasses | filter:classFilter">
-      <button class="classNames" ng-class-odd="'odd'">{{class.name}}</button>
-    </div>
+      <table class="classes">
+        <tr class="animate-repeat classRow" ng-repeat="class in apclasses | filter:classFilter">
+          <td><div>{{class.name}}</div></td>
+          <td><input class="userScore" ng-click="click()" type="checkbox" ng-model="apselects[class.name]" /></td>
+        </tr>
+        <tr>
+          <td style="padding-top:10px"><a style="text-decoration:none" href="http://www.scu.edu/studentrecords/upload/Test-Credit-2.pdf">* View the AP Credit score requirements</a></td>
+        </tr>
+      </table>
   </div>
   <div class="col-75 cf">
+      <div class="schedule">
+        <h1 style="text-align:center">Your freshman schedule</h1>
         <table>
           <tr>
             <th>Fall</th>
@@ -13,30 +27,36 @@
             <th>Spring</th>
           </tr>
           <tr>
-            <td>Critical Thinking &amp; Writing 1</td>
-            <td>Critical Thinking &amp; Writing 2</td>
-            <td>COEN 19 (Discrete Math)</td>
+            <td>CTW 1</td>
+            <td>CTW 2</td>
+            <td>COEN 19</td>
           </tr>
           <tr>
-            <td>Math 11</td>
-            <td>Math 12</td>
-            <td>Math 13</td>
+            <td>{{fallmath}}</td>
+            <td>{{wintermath}}</td>
+            <td>{{springmath}}</td>
           </tr>
           <tr>
-            <td>COEN 10</td>
-            <td>COEN 11</td>
-            <td>COEN 12</td>
+            <td>{{fallcoen}}</td>
+            <td>{{wintercoen}}</td>
+            <td>{{springcoen}}</td>
           </tr>
           <tr>
-            <td>CHEM 11</td>
-            <td>PHYS 31</td>
-            <td>PHYS 32</td>
+            <td>{{fallscience}}</td>
+            <td>{{winterscience}}</td>
+            <td>{{springscience}}</td>
           </tr>
           <tr>
-            <td>ENGR 1</td>
-            <td></td>
+            <td>{{fallengr}}</td>
+            <td>{{winterengr}}</td>
             <td></td>
           </tr>
         </table>
+        <a href="#/schedule"><button class="print">Print Schedule</button></a>
+      </div>
   </div>
 </div>
+ <div class="footer">
+        <p>&copy; Ace's High 2014<br>
+        Kyle Alwyn, Roshan Ramankutty, Taylor Roden, Astha Singh</p>
+      </div>

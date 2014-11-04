@@ -20,11 +20,9 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
       });
   })
   .controller('MainCtrl', function() {
-    console.log('in main');
   })
-  .controller('AboutCtrl', ['$scope', function ($scope) {
-    $scope.hello = 'hellooooo';
-    console.log('in about');
+  .controller('AboutCtrl', function ($timeout,$scope,$rootScope) {
+    $scope.apselects = {};
     $scope.apclasses = [
         {
           name:'Calculus AB',
@@ -58,4 +56,72 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
           score:4
         }
       ];
-    }]);
+      $rootScope.fallmath = 'MATH 11';
+      $rootScope.wintermath = 'MATH 12';
+      $rootScope.springmath = 'MATH 13';
+      $rootScope.fallcoen = 'COEN 10';
+      $rootScope.wintercoen = 'COEN 11';
+      $rootScope.springcoen = 'COEN 12';
+      $rootScope.fallscience = 'CHEM 11';
+      $rootScope.winterscience = 'PHYS 31';
+      $rootScope.springscience = 'PHYS 32';
+      $rootScope.fallengr = 'ENGR 1';
+      $rootScope.winterengr = '';
+      $scope.bc = false;
+      $scope.ab = false;
+
+      $scope.click = function(){
+        $timeout(function() {
+          angular.forEach($scope.apselects, function(key,value){
+            
+            //if AB is checked
+            if(value === 'Calculus AB' && key === true){
+              $scope.ab = true;
+              if($scope.bc === false){
+                $rootScope.fallmath = 'MATH 12';
+                $rootScope.wintermath = 'MATH 13';
+                $rootScope.springmath = 'MATH 14';
+              }
+            }
+
+            //if AB is not checked
+            else if(value === 'Calculus AB'){
+              $scope.ab = false;
+              //check if BC is checked for no overwrite
+              if($scope.bc === false){
+                $rootScope.fallmath = 'MATH 11';
+                $rootScope.wintermath = 'MATH 12';
+                $rootScope.springmath = 'MATH 13';
+              }
+            }
+
+            //if BC is checked
+            if(value === 'Calculus BC' && key === true){
+              $scope.bc = true;
+              $rootScope.fallmath = 'MATH 13';
+              $rootScope.wintermath = 'MATH 14';
+              $rootScope.springmath = 'AMTH 106';
+            }
+
+            //if BC is not checked
+            else if(value === 'Calculus BC'){
+              $scope.bc = false;
+              //check if AB is still checked
+              if($scope.ab === true){ 
+                $rootScope.fallmath = 'MATH 12';
+                $scope.wintermath = 'MATH 13';
+                $scope.springmath = 'MATH 14';
+              }
+              else{
+                $rootScope.fallmath = 'MATH 11';
+                $rootScope.wintermath = 'MATH 12';
+                $rootScope.springmath = 'MATH 13';
+              }
+            }
+          }); //end for each
+        }, 0); //end timeout
+      }; //end click
+    })
+
+.controller('ScheduleCtrl', function($rootScope) {
+  });

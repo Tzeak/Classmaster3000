@@ -27,28 +27,28 @@
             <th>Spring</th>
           </tr>
           <tr>
-            <td>CTW 1</td>
-            <td>CTW 2</td>
-            <td>COEN 19</td>
+            <td class="core">CTW 1</td>
+            <td class="core">CTW 2</td>
+            <td class="math">COEN 19</td>
           </tr>
           <tr>
-            <td>{{fallmath}}</td>
-            <td>{{wintermath}}</td>
-            <td>{{springmath}}</td>
+            <td class="math">{{fallmath}}</td>
+            <td class="math">{{wintermath}}</td>
+            <td class="math">{{springmath}}</td>
           </tr>
           <tr>
-            <td>{{fallcoen}}</td>
-            <td>{{wintercoen}}</td>
-            <td>{{springcoen}}</td>
+            <td ng-class="fallco ? 'fallco' : 'fallcoencore'">{{fallcoen}}</td>
+            <td ng-class="winterco ? 'winterco' : 'wintercoencore'">{{wintercoen}}</td>
+            <td class="coen">{{springcoen}}</td>
           </tr>
           <tr>
-            <td>{{fallscience}}</td>
-            <td>{{winterscience}}</td>
-            <td>{{springscience}}</td>
+            <td ng-class="fallsci ? 'fallsci' : 'fallsciencecore'">{{fallscience}}</td>
+            <td ng-class="wintersci ? 'wintersci' : 'wintersciencecore'">{{winterscience}}</td>
+            <td class="math">{{springscience}}</td>
           </tr>
           <tr>
-            <td>{{fallengr}}</td>
-            <td>{{winterengr}}</td>
+            <td ng-class="falleng ? 'falleng' : ''">{{fallengr}}</td>
+            <td ng-class="wintereng ? 'wintereng' : ''">{{winterengr}}</td>
             <td></td>
           </tr>
         </table>

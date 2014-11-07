@@ -1,21 +1,27 @@
 <div class="header">
     <ul class="nav cf">
-      <li><a href="#"><i class="fa fa-chevron-left"></i> Back</a></li>
+        <label class="dropDown" > Change selected major:
+        <select type="select">
+          <option ng-model="coenMajor">Computer Engineering</option>
+          <option ng-model="webMajor">Web Design</option>
+        </select>
+        </label>
+      </li>
     </ul>
 </div>
 <div class="row">
   <div class="col-25 cf">
-    <h4 style="text-align:center">Check the boxes that you have valid credit for *</h4>
+    <h3 style="text-align:center">Enter your incoming credit</h3>
     <input type="text" class="classInput" ng-model="classFilter" placeholder="Filter AP classes" />
-      <table class="classes">
-        <tr class="animate-repeat classRow" ng-repeat="class in apclasses | filter:classFilter">
-          <td><div>{{class.name}}</div></td>
-          <td><input class="userScore" ng-click="click()" type="checkbox" ng-model="apselects[class.name]" /></td>
-        </tr>
-        <tr>
-          <td style="padding-top:10px"><a style="text-decoration:none" href="http://www.scu.edu/studentrecords/upload/Test-Credit-2.pdf">* View the AP Credit score requirements</a></td>
-        </tr>
-      </table>
+    <div ng-show="errorMessage" class="alert-box error">
+      <i class="fa fa-exclamation-circle"></i> {{errorMessage}}
+    </div>
+    <table class="classes">
+      <tr class="animate-repeat classRow" ng-repeat="class in apclasses | filter:classFilter">
+        <td class="className"><div>{{class.name}}</div></td>
+        <td><input class="userScore" ng-change="change()" type="number" maxlength="1" ng-model="apselects[class.name]" /></td>
+      </tr>
+    </table>
   </div>
   <div class="col-75 cf">
       <div class="schedule">
@@ -52,11 +58,11 @@
             <td></td>
           </tr>
         </table>
-        <a href="#/schedule"><button class="print">Print Schedule</button></a>
+        <a href="" ng-click="print()"><button class="print">Print Schedule</button></a>
       </div>
   </div>
 </div>
- <div class="footer">
-        <p>&copy; Ace's High 2014<br>
+<div class="footer">
+        <p>&copy; Ace's High 2014 
         Kyle Alwyn, Roshan Ramankutty, Taylor Roden, Astha Singh</p>
-      </div>
+</div>

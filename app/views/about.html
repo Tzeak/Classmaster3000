@@ -1,4 +1,5 @@
 <div class="header">
+    <h1 class="title">CLASSMASTER 3000</h1>
     <ul class="nav cf">
         <label class="dropDown" > Change selected major:
         <select type="select">
@@ -13,15 +14,15 @@
   <div class="col-25 cf">
     <h3 style="text-align:center">Enter your incoming credit</h3>
     <input type="text" class="classInput" ng-model="classFilter" placeholder="Filter AP classes" />
-    <div ng-show="errorMessage" class="alert-box error">
+    <table class="classes">
+        <tr class="classRow" ng-repeat="class in a | filter:classFilter">
+          <td class="className"> {{ class.name }}</td>
+          <td><input class="userScore" ng-change="change(class.store, ap[$index])" type="number" ng-model="ap[$index]" /></td>
+        </tr>
+    </table>
+    <div ng-show="errorMessage" class="alert-box error animate-show">
       <i class="fa fa-exclamation-circle"></i> {{errorMessage}}
     </div>
-    <table class="classes">
-      <tr class="animate-repeat classRow" ng-repeat="class in apclasses | filter:classFilter">
-        <td class="className"><div>{{class.name}}</div></td>
-        <td><input class="userScore" ng-change="change()" type="number" maxlength="1" ng-model="apselects[class.name]" /></td>
-      </tr>
-    </table>
   </div>
   <div class="col-75 cf">
       <div class="schedule">
@@ -32,29 +33,38 @@
             <th>Winter</th>
             <th>Spring</th>
           </tr>
+
+          <!-- DEFAULT - WON'T CHANGE -->
           <tr>
-            <td class="core">CTW 1</td>
-            <td class="core">CTW 2</td>
-            <td class="math">COEN 19</td>
+            <td class="core">{{ vars.ctw1 }}</td>
+            <td class="core">{{ vars.ctw2 }}</td>
+            <td class="math">{{ vars.coen19 }}</td>
           </tr>
-          <tr>
-            <td class="math">{{fallmath}}</td>
-            <td class="math">{{wintermath}}</td>
-            <td class="math">{{springmath}}</td>
+
+          <!-- MATH SEQUENCE -->
+          <tr class="animate-show">
+            <!--Math 9 Sequence-->   
+            <td class="math">{{ fallMath}}</td>
+            <td class="math">{{ winterMath }}</td>
+            <td class="math">{{ springMath }}</td>
           </tr>
-          <tr>
-            <td ng-class="fallco ? 'fallco' : 'fallcoencore'">{{fallcoen}}</td>
-            <td ng-class="winterco ? 'winterco' : 'wintercoencore'">{{wintercoen}}</td>
-            <td class="coen">{{springcoen}}</td>
+            <!--Generic Sequence-->   
+          <tr class="animate-show">
+            <td class="math">{{ fallCoen }}</td>
+            <td class="math">{{ winterCoen }}</td>
+            <td class="math">{{ springCoen }}</td>
           </tr>
+            <!--Calc AB Sequence-->  
+
           <tr>
-            <td ng-class="fallsci ? 'fallsci' : 'fallsciencecore'">{{fallscience}}</td>
-            <td ng-class="wintersci ? 'wintersci' : 'wintersciencecore'">{{winterscience}}</td>
-            <td class="math">{{springscience}}</td>
+            <td class="math">{{ fallSci }}</td>
+            <td class="core">{{ winterSci }}</td>
+            <td class="math">{{ springSci }}</td>
           </tr>
+
           <tr>
-            <td ng-class="falleng ? 'falleng' : ''">{{fallengr}}</td>
-            <td ng-class="wintereng ? 'wintereng' : ''">{{winterengr}}</td>
+            <td>{{ fallEng }}</td>
+            <td>{{ winterEng }}</td>
             <td></td>
           </tr>
         </table>

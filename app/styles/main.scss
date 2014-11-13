@@ -23,8 +23,8 @@ html,body {
   .dropDown{
     color:white;
     float:right;
-    vertical-align: top;
     padding-right:20px;
+    padding-top:4px;
   }
 }
 .scu{
@@ -164,7 +164,8 @@ html,body {
 .transition{
   transition:1s all;
 }
-.classRow{
+.classes{
+  width:100%;
   .className{
     padding-left:15px;
   }
@@ -233,9 +234,7 @@ html,body {
   }
 
 }
-.classes{
-  width:100%;
-}
+
 .classNames{
   width:80%;
   height:20px;
@@ -266,13 +265,13 @@ html,body {
 }
 
 .view-animate.ng-enter {
-  left:100%;
+  top:100%;
 }
 .view-animate.ng-enter.ng-enter-active {
-  left:0;
+  top:0;
 }
 .view-animate.ng-leave.ng-leave-active {
-  left:-100%;
+  top:-100%;
 }
 
 .print {
@@ -311,36 +310,6 @@ html,body {
   background:#8EEBEC;
 }
 .coen{
-  background:#C3FDB8;
-}
-.fallco{
-  background:#C3FDB8;
-}
-.fallcoencore{
-  background:#FFF380;
-}
-.winterco{
-  background:#C3FDB8;
-}
-.wintercoencore{
-  background:#FFF380;
-}
-.fallsci{
-  background:#8EEBEC;
-}
-.fallsciencecore{
-  background:#FFF380;
-}
-.wintersci{
-  background:#8EEBEC;
-}
-.wintersciencecore{
-  background:#FFF380;
-}
-.falleng{
-  background:#C3FDB8;
-}
-.wintereng{
   background:#C3FDB8;
 }
 
@@ -387,4 +356,25 @@ html,body {
     float:left;
     margin:0;
   }
+}
+.animate-show {
+  transition:all linear 0.2s;
+  opacity:1;
+}
+
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  transition:all linear 0.2s;
+}
+
+.animate-show.ng-hide {
+  transition:all linear 0.2s;
+  opacity:0;
+}
+.title{
+  margin:0;
+  padding:0 0 0 20px;
+  float:left;
+  color:#fff;
+  font-family: 'Audiowide', cursive;
 }

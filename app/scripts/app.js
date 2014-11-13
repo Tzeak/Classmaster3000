@@ -1,7 +1,13 @@
 'use strict';
 
 angular.module('classmasterApp', ['ngAnimate','ngRoute'])
-  .constant('vars', {
+  .constant('variables', {
+    calcA: 'Calculus AB',
+    calcB: 'Calculus BC',
+    csci: 'Computer Science A',
+    phys: 'Physics C: Mechanics',
+    chem: 'Chemistry',
+    esci: 'Environmental Science',
     ctw1: 'CTW 1',
     ctw2: 'CTW 2',
     math11: 'MATH 11',
@@ -23,21 +29,13 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
     phys31: 'PHYS 31',
     phys32: 'PHYS 32',
     engr1: 'ENGR 1',
-    core: 'University Core',
+    core: 'University Core'
   })
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
-      })
-      .when('/schedule', {
-        templateUrl: 'views/schedule.html',
-        controller: 'ScheduleCtrl'
       })
       .otherwise({
         redirectTo: '/'
@@ -45,114 +43,141 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
   })
   .controller('MainCtrl', function() {
   })
-  .controller('AboutCtrl', function ($window,$timeout,$scope,$rootScope,vars) {
-    $scope.apselects = {};
-    $scope.apclasses = [
-        {
-          name:'Calculus AB',
-          score:4
-        },
-        {
-          name:'Calculus BC',
-          score:3
-        },
-        {
-          name:'Computer Science A',
-          score:3
-        },
-        {
-          name:'Physics C: Mechanics',
-          score:4
-        },
-        // {
-        //   name:'Physics C: Electricity & Magnetism',
-        //   score:4
-        // },
-        {
-          name:'Chemistry',
-          score:3
-        },
-        {
-          name:'Environmental Science',
-          score:4
-        }
-      ];
-      $scope.fallmath = vars.math11;
-      $scope.wintermath = vars.math12;
-      $scope.springmath = vars.math13;
-      $scope.fallcoen = vars.coen10;
-      $scope.wintercoen = vars.coen11;
-      $scope.springcoen = vars.coen12;
-      $scope.fallscience = vars.chem11;
-      $scope.winterscience = vars.phys31;
-      $scope.springscience = vars.phys32;
-      $scope.fallengr = vars.engr1;
-      $scope.isError = false;
-      $scope.errorCount = 0;
+  .controller('AboutCtrl',function ($window,$timeout,$scope,variables) {
+    var vars = variables;
+    $scope.vars = variables;
+    $scope.ap = [];
+    $scope.aps = {};
+    $scope.a = [
+      {
+        name:$scope.vars.calcA,
+        store: 'calcA'
+      },
+      {
+        name:$scope.vars.calcB,
+        store: 'calcB'
+      },
+      {
+        name:$scope.vars.csci,
+        store: 'csci'
+      },
+      {
+        name:$scope.vars.phys,
+        store: 'phys'
+      },
+      {
+        name:$scope.vars.chem,
+        store: 'chem'
+      },
+      {
+        name:$scope.vars.esci,
+        store: 'esci'
+      }
+    ];
+    $scope.fallMath = vars.math11;
+    $scope.fallCoen = vars.coen10;
+    $scope.fallSci = vars.chem11;
+    $scope.fallEng = vars.engr1;
 
-      $scope.$watch('errorCount', function(){
-        $timeout(function(){
-          if($scope.errorCount === 0){
+    $scope.winterMath = vars.math12;
+    $scope.winterCoen = vars.coen11;
+    $scope.winterSci = vars.phys31;
+
+    $scope.springMath = vars.math13;
+    $scope.springCoen = vars.coen12;
+    $scope.springSci = vars.phys32;
+
+    var calcA;
+    var calcB;
+    var lowFlag;
+    // var chem;
+    // var phys;
+    // var csci;
+    // var esci;
+    $scope.$watch(function(){
+        if(calcA === true){
+          $scope.fallMath = vars.math12;
+          $scope.winterMath = vars.math13;
+          $scope.springMath = vars.math14;
+        }
+        else{
+          $scope.fallMath = vars.math11;
+          $scope.winterMath = vars.math12;
+          $scope.springMath = vars.math13;
+        }
+        if(calcB === true){
+          $scope.fallMath = vars.math13;
+          $scope.winterMath = vars.math14;
+          $scope.springMath = vars.amth106;
+        }
+        else if(!calcA){
+          $scope.fallMath = vars.math11;
+          $scope.winterMath = vars.math12;
+          $scope.springMath = vars.math13;
+        }
+        else{
+          $scope.fallMath = vars.math12;
+          $scope.winterMath = vars.math13;
+          $scope.springMath = vars.math14;
+        }
+      });
+    function errorCheck(){
+      for(var i = 0; i < $scope.ap.length; i++){
+        if($scope.ap[i] > 5 || $scope.ap[i] < 1 && $scope.ap[i] !== null){
+          $scope.errorMessage = 'Enter a number between 1 and 5';
+          return false;
+        }
+        else{
           delete $scope.errorMessage;
         }
-      },200);
-      });
+      }
+    }
+    $scope.change = function(test, score){
+      errorCheck();
+      //User is inputting into Calclus AB box
+      if(test === 'calcA'){
 
-      function errorCheck(score){
-        if(score > 5 || score < 1){
-          $scope.errorCount++;
-          $scope.isError = true;
-          $scope.errorMessage = 'Enter a number between 1 and 5';
+        //Sets Calc AB flag to true
+        if(score >= 3 && score <= 5){
+          calcA = true;
+        }
+
+        /* Sets Calc AB flag to false 
+        if user does not have a 3 on Calc BC */
+        else if(!lowFlag){
+          calcA = false;
         }
       }
 
-      $scope.change = function(){
-        $timeout(function() {
-          angular.forEach($scope.apselects, function(score,apTest){
-            if(score !== null){
-              errorCheck(score);
-            }
-            //if AB is checked
-            if(apTest === 'Calculus AB'){
-              if(score === 3){
-                $scope.calcAB3 = true;
-                $scope.calcAB45 = false;
-              }
-              else if(score > 3 && score <= 5){
-                $scope.calcAB45 = true;
-                $scope.calcAB3 = false;
-              }
-              else{
-                $scope.calcAB45 = false;
-                $scope.calcAB3 = false;
-              }
-            }
+      /* User is inputting into Calculus BC box */
+      if (test === 'calcB'){
 
-            //if BC is checked
-            if(apTest === 'Calculus BC'){
-            }
-
-            if(apTest === 'Computer Science A'){
-
-            }
-            else if(apTest === 'Computer Science A'){
-            
-            }
-
-            if(apTest === 'Chemistry'){
-            }
-
-            if(apTest === 'Physics C: Mechanics'){
-            }
-          }); //end for each
-        }, 10); //end timeout
-        $scope.errorCount = 0;
-      }; //end click
-
-      $scope.print = function(){
-        $window.print();
-      };
-    })
-
-.controller('ScheduleCtrl', function() {
+        /* A score of 3 has the same results
+        as passing Calc AB exam, Calc AB flag is set  */
+        if(score === 3 && !calcA){
+          calcA = true;
+          lowFlag = true;
+        }
+        /* Sets Calc BC flag to true if score is 4 or 5*/
+        if(score === 4 || score === 5){
+          calcB = true;
+          lowFlag = false;
+        }
+        /* Calc B removed, Calc AB is still passing */
+        else if(calcA){
+          calcB = false;
+          lowFlag = false;
+        }
+        /* Reset to generic Math sequence */
+        else{
+          calcA = false;
+          calcB = false;
+          lowFlag = false;
+        }
+      }
+      //Error Checker
+      
+      /* Performs class resets on every scope digest */
+      
+    };
   });

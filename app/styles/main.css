@@ -25,8 +25,8 @@ html, body {
 .header .dropDown {
   color: white;
   float: right;
-  vertical-align: top;
   padding-right: 20px;
+  padding-top: 4px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\0000330}}
@@ -197,16 +197,20 @@ html, body {
   transition: 1s all;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003168}}
-.classRow .className {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003167}}
+.classes {
+  width: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003169}}
+.classes .className {
   padding-left: 15px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003171}}
-.classRow td {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003172}}
+.classes td {
   border-bottom: #aaa 1px dashed;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003176}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003177}}
 .col-25 {
   position: relative;
   height: 100vh;
@@ -219,7 +223,7 @@ html, body {
   margin-bottom: -100px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003187}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003188}}
 .col-75 {
   position: relative;
   height: 90%;
@@ -228,24 +232,24 @@ html, body {
   padding: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003194}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003195}}
 .classInput {
   width: 50%;
   margin: 15px 25%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003197}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003198}}
 .classInput:focus {
   outline: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003204}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003205}}
 .animate-repeat.ng-move,
 .animate-repeat.ng-enter,
 .animate-repeat.ng-leave {
   transition: all linear 0.5s;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003210}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003211}}
 .animate-repeat.ng-leave.ng-leave-active,
 .animate-repeat.ng-move,
 .animate-repeat.ng-enter {
@@ -253,7 +257,7 @@ html, body {
   max-height: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003217}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003218}}
 .animate-repeat.ng-leave,
 .animate-repeat.ng-move.ng-move-active,
 .animate-repeat.ng-enter.ng-enter-active {
@@ -261,7 +265,7 @@ html, body {
   max-height: 40px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003222}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003223}}
 .footer {
   position: fixed;
   bottom: 0;
@@ -272,17 +276,12 @@ html, body {
   padding: 5px 20px;
   z-index: 100;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003231}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003232}}
 .footer p {
   margin-top: 7px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003236}}
-.classes {
-  width: 100%;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003239}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003238}}
 .classNames {
   width: 80%;
   height: 20px;
@@ -293,19 +292,19 @@ html, body {
   float: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003248}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003247}}
 .userScore {
   width: 30px;
   height: 15px;
   float: right;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003253}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003252}}
 .odd {
   background: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003256}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003255}}
 .view-animate.ng-enter, .view-animate.ng-leave {
   transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s;
   display: block;
@@ -318,22 +317,22 @@ html, body {
   bottom: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003268}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003267}}
 .view-animate.ng-enter {
-  left: 100%;
+  top: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003271}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003270}}
 .view-animate.ng-enter.ng-enter-active {
-  left: 0;
+  top: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003274}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003273}}
 .view-animate.ng-leave.ng-leave-active {
-  left: -100%;
+  top: -100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003278}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003277}}
 .print {
   background-color: #444;
   border-radius: 10px;
@@ -349,93 +348,43 @@ html, body {
   margin-right: 15px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003292}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003291}}
 .print:hover {
   background-color: #333;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003295}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003294}}
 .print:active {
   position: relative;
   top: 1px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003300}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003299}}
 .printSchedule {
   padding: 40px;
   text-align: center;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003303}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003302}}
 .printSchedule td, .printSchedule th {
   padding-left: 20px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003307}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003306}}
 .core {
   background: #FFF380;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003310}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003309}}
 .math {
   background: #8EEBEC;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003312}}
 .coen {
   background: #C3FDB8;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003316}}
-.fallco {
-  background: #C3FDB8;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003319}}
-.fallcoencore {
-  background: #FFF380;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003322}}
-.winterco {
-  background: #C3FDB8;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003325}}
-.wintercoencore {
-  background: #FFF380;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003328}}
-.fallsci {
-  background: #8EEBEC;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003331}}
-.fallsciencecore {
-  background: #FFF380;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003334}}
-.wintersci {
-  background: #8EEBEC;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003337}}
-.wintersciencecore {
-  background: #FFF380;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003340}}
-.falleng {
-  background: #C3FDB8;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003343}}
-.wintereng {
-  background: #C3FDB8;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003347}}
 .alert-box {
   color: #555;
   border-radius: 10px;
@@ -445,25 +394,25 @@ html, body {
   line-height: 20px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003355}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003324}}
 .alert-box span {
   font-weight: bold;
   text-transform: uppercase;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003359}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003328}}
 .error {
   background: #ffecec;
   border: 1px solid #f5aca6;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003334}}
 .alert-box.ng-hide-add.ng-hide-add-active,
 .alert-box.ng-hide-remove.ng-hide-remove-active {
   transition: all linear 0.5s;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003369}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003338}}
 .alert-box.ng-hide {
   line-height: 0;
   opacity: 0;
@@ -471,25 +420,51 @@ html, body {
 }
 
 @media print {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003376}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003345}}
   .header {
     display: none !important;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003379}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003348}}
   .col-25 {
     display: none !important;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003382}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003351}}
   .print {
     display: none !important;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003385}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003354}}
   .col-75 {
     width: 100%;
     float: left;
     margin: 0;
   }
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003360}}
+.animate-show {
+  transition: all linear 0.2s;
+  opacity: 1;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003366}}
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  transition: all linear 0.2s;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003370}}
+.animate-show.ng-hide {
+  transition: all linear 0.2s;
+  opacity: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003374}}
+.title {
+  margin: 0;
+  padding: 0 0 0 20px;
+  float: left;
+  color: #fff;
+  font-family: 'Audiowide', cursive;
 }

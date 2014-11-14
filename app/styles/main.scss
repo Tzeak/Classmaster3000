@@ -108,30 +108,15 @@ html,body {
   width:100%;
   opacity:1;
   h3{
-    margin-bottom:0;
+    margin-bottom:5px;
+    color:maroon;
   }
 }
 .abscenter {
-  height:50%;
-  width:50%;
   margin: auto;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
   text-align: center;
-  h1{
-    font-family:'Audiowide', sans-serif;
-    font-size:4em;
-    color:white;
-    padding:0;
-    margin:0;
-    text-shadow: 2px 2px #000;
-  }
-  h2{
-    padding:0;
-    margin-bottom:20px;
-    font-size:2em;
-    color:white;
-  }
 }
 .bronco{
   position:absolute;
@@ -146,7 +131,7 @@ html,body {
   position:relative;
   height:auto;
   width:90%;
-  margin:10% auto;
+  margin:15% auto;
   padding:25px 0 0 0;
   font-size:20px;
   table{
@@ -158,6 +143,7 @@ html,body {
   }
   td{
     text-align: center;
+    width:33.3%;
     border-radius: 10px;
   }
 }
@@ -166,6 +152,9 @@ html,body {
 }
 .classes{
   width:100%;
+  .classCentered{
+    text-align: center;
+  }
   .className{
     padding-left:15px;
   }
@@ -177,7 +166,7 @@ html,body {
 .col-25{
   position:relative;
   height:100vh;
-  width:24%;
+  width:19%;
   border-right:1px solid #111;
   margin:0;
   padding:0;
@@ -188,13 +177,14 @@ html,body {
 .col-75{
   position:relative;
   height:90%;
-  width:75%;
-  margin-left:25%;
+  width:80%;
+  margin-left:20%;
   padding:0;
 }
 .classInput{
   width:50%;
   margin:15px 25%;
+  margin-bottom:0;
   &:focus{
     outline:none;
   }
@@ -377,4 +367,78 @@ html,body {
   float:left;
   color:#fff;
   font-family: 'Audiowide', cursive;
+}
+
+.loader{
+  height:80px;
+  width:80px;
+  position:relative;
+  left:50%;
+  top:40vh;
+  margin-left:-80px;
+  margin-top:-80px;
+  .spin {
+    height:80px;
+    width:80px;
+    -webkit-animation:myspin 1s ease infinite;
+    
+    &, &:before {
+      box-sizing:border-box;
+      border:5px solid blue;
+      border-left-color:#e86275;
+      border-top-color:#5a72af;
+      border-right-color:#8cdc6e;
+      border-bottom-color:#ee8c4a;
+      border-radius:50%;
+      position:absolute;
+      display:block;
+      
+    }
+    
+    &:before{
+      content:" ";
+      left:50%;
+      top:50%;
+      height:96px;
+      width:96px;
+      margin:-48px;
+      border-width:6px;
+      border-left-color:rgba(0,0,0,0);
+      border-right-color:rgba(0,0,0,0);
+      border-top-color:rgba(0,0,0,0);
+      border-bottom-color:rgba(0,0,0,.2);
+      opacity:1;
+      -webkit-animation:myspin 1s reverse ease infinite;
+    }
+  }
+}
+
+@-webkit-keyframes myspin {
+  from {
+    -webkit-transform:rotate(0deg);
+  }
+  
+  to {
+    -webkit-transform:rotate(360deg);
+  }
+}
+
+.marginBottom{
+  margin-bottom:20px;
+}
+.otherQuestions{
+  padding-left:15px;
+}
+.key{
+  position:absolute;
+  width:100px;
+  top:15px;
+  right:15px;
+  text-align:center;
+  border:solid 1px #666;
+  border-radius:20px;
+  overflow:hidden;
+  .keyHeader{
+    padding:3px 0;
+  }
 }

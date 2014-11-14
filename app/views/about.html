@@ -1,7 +1,7 @@
 <div class="header">
     <h1 class="title">CLASSMASTER 3000</h1>
     <ul class="nav cf">
-        <label class="dropDown" > Change selected major:
+        <label class="dropDown" > Change major:
         <select type="select">
           <option ng-model="coenMajor">Computer Engineering</option>
           <option ng-model="webMajor">Web Design</option>
@@ -12,21 +12,86 @@
 </div>
 <div class="row">
   <div class="col-25 cf">
-    <h3 style="text-align:center">Enter your incoming credit</h3>
     <input type="text" class="classInput" ng-model="classFilter" placeholder="Filter AP classes" />
+    <h3 style="text-align:center">Enter your AP credits</h3>
     <table class="classes">
-        <tr class="classRow" ng-repeat="class in a | filter:classFilter">
-          <td class="className"> {{ class.name }}</td>
-          <td><input class="userScore" ng-change="change(class.store, ap[$index])" type="number" ng-model="ap[$index]" /></td>
+        <tr class="classRow animate-repeat" ng-repeat="class in a | filter:classFilter">
+          <td class="className"> 
+            {{ class.name }}
+          </td>
+          <td>
+            <input class="userScore" ng-change="change(class.store, ap[$index])" type="number" ng-model="ap[$index]" />
+          </td>
         </tr>
     </table>
     <div ng-show="errorMessage" class="alert-box error animate-show">
       <i class="fa fa-exclamation-circle"></i> {{errorMessage}}
     </div>
+    <h3 style="text-align:center">Check any transfer credits</h3>
+    <table class="classes marginBottom">
+      <tr class="classRow">
+        <td class="classCentered"> 
+          {{ vars.math11 }}<br>
+          <input id="math11" type="checkbox" ng-click="change()" ng-change="selectAll()" ng-model="calcA" />
+        </td>
+        <td class="classCentered"> 
+          {{ vars.math12 }}<br>
+          <input id="math12" type="checkbox" ng-click="change()" ng-change="selectAll()" ng-model="calcBhi" />
+        </td>
+        <td class="classCentered"> 
+          {{ vars.math13 }}<br>
+          <input id="math13" type="checkbox" ng-click="change()" ng-change="selectAll()" ng-model="math13" />
+        </td>
+        <td class="classCentered"> 
+          {{ vars.math14 }}<br>
+          <input id="math14" type="checkbox" ng-click="selectAll()" ng-change="change()" ng-model="math14" />
+        </td>
+      </tr>
+      <tr class="classRow">
+        <td class="classCentered"> 
+          {{ vars.chem11 }}<br>
+          <input type="checkbox" ng-click="selectAll()" ng-change="change()" ng-model="chem" />
+        </td>
+        <td class="classCentered"> 
+          {{ vars.phys31 }}<br>
+          <input type="checkbox" ng-click="selectAll()" ng-change="change()" ng-model="phys" />
+        </td>
+        <td class="classCentered"> 
+          {{ vars.phys32 }}<br>
+          <input type="checkbox" ng-click="selectAll()" ng-change="change()" ng-model="phys32" />
+        </td>
+      </tr>
+
+    </table>
+
+    <label class="otherQuestions">
+      <input type="checkbox" ng-change="change()" ng-model="priorProg" />
+      Prior programming experience? 
+    </label>
+    </br>
+    <label class="otherQuestions">
+      <input type="checkbox" ng-change="change()" ng-model="calcReady" />
+      Did not pass Calculus Readiness Exam 
+    </label>
+    
+    
+
   </div>
   <div class="col-75 cf">
-      <div class="schedule">
-        <h1 style="text-align:center">Your freshman schedule</h1>
+      <div class="loader" ng-show="loading">
+        <div class="spin"></div>
+      </div>
+
+      <div class="key">
+        <div class="keyHeader">Key</div>
+        <div class="coen">COEN</div>
+        <div class="math">MATH/SCIENCE</div>
+        <div class="core">CORE</div>
+      </div>
+      <div class="schedule animate-show" ng-hide="loading">
+        <div ng-show="noChanges" class="alert-box error animate-show">
+          <i class="fa fa-exclamation-circle"></i> {{noChanges}}
+        </div>
         <table>
           <tr>
             <th>Fall</th>
@@ -50,20 +115,20 @@
           </tr>
             <!--Generic Sequence-->   
           <tr class="animate-show">
-            <td class="math">{{ fallCoen }}</td>
-            <td class="math">{{ winterCoen }}</td>
-            <td class="math">{{ springCoen }}</td>
+            <td class="coen">{{ fallCoen }}</td>
+            <td class="coen">{{ winterCoen }}</td>
+            <td class="coen">{{ springCoen }}</td>
           </tr>
             <!--Calc AB Sequence-->  
 
           <tr>
             <td class="math">{{ fallSci }}</td>
-            <td class="core">{{ winterSci }}</td>
+            <td class="math">{{ winterSci }}</td>
             <td class="math">{{ springSci }}</td>
           </tr>
 
           <tr>
-            <td>{{ fallEng }}</td>
+            <td class="coen">{{ fallEng }}</td>
             <td>{{ winterEng }}</td>
             <td></td>
           </tr>

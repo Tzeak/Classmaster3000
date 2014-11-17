@@ -406,7 +406,7 @@ html,body {
       border-left-color:rgba(0,0,0,0);
       border-right-color:rgba(0,0,0,0);
       border-top-color:rgba(0,0,0,0);
-      border-bottom-color:rgba(0,0,0,.2);
+      border-bottom-color:rgba(0,0,0,.6);
       opacity:1;
       -webkit-animation:myspin 1s reverse ease infinite;
     }
@@ -440,5 +440,16 @@ html,body {
   overflow:hidden;
   .keyHeader{
     padding:3px 0;
+  }
+}
+.engr1{
+  width:100%;
+  text-align: center;
+  table{
+    width:90%;
+
+    td{
+      width:25%;
+    }
   }
 }

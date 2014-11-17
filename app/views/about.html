@@ -61,9 +61,8 @@
           <input type="checkbox" ng-click="selectAll()" ng-change="change()" ng-model="phys32" />
         </td>
       </tr>
-
     </table>
-
+    <h3 style="text-align:center">Other relevant questions</h3>
     <label class="otherQuestions">
       <input type="checkbox" ng-change="change()" ng-model="priorProg" />
       Prior programming experience? 
@@ -73,8 +72,21 @@
       <input type="checkbox" ng-change="change()" ng-model="calcReady" />
       Did not pass Calculus Readiness Exam 
     </label>
-    
-    
+    <div class="engr1">
+    <h5>What quarter do you want ENGR 1?</h5>
+    <table>
+      <tr>
+        <td><label class="otherQuestions">
+      <input type="checkbox" ng-change="change()" ng-model="calcReady" />
+      Fall 
+    </label></td>
+        <td><label class="otherQuestions">
+      <input type="checkbox" ng-change="change()" ng-model="calcReady" />
+      Winter
+    </label></td>    
+      </tr>
+    </table>
+    </div>
 
   </div>
   <div class="col-75 cf">

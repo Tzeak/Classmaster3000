@@ -498,7 +498,7 @@ html, body {
   border-left-color: rgba(0, 0, 0, 0);
   border-right-color: rgba(0, 0, 0, 0);
   border-top-color: rgba(0, 0, 0, 0);
-  border-bottom-color: rgba(0, 0, 0, 0.2);
+  border-bottom-color: rgba(0, 0, 0, 0.6);
   opacity: 1;
   -webkit-animation: myspin 1s reverse ease infinite;
 }
@@ -539,4 +539,18 @@ html, body {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003441}}
 .key .keyHeader {
   padding: 3px 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003445}}
+.engr1 {
+  width: 100%;
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003448}}
+.engr1 table {
+  width: 90%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Desktop\/Web\/Websites\/Classmaster3000\/app\/styles\/main\.scss}line{font-family:\00003451}}
+.engr1 table td {
+  width: 25%;
 }

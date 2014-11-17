@@ -124,14 +124,6 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
           $scope.winterMath = vars.math13;
           $scope.springMath = vars.math14;
         }
-        if($scope.calcReady){
-          $scope.fallMath = vars.math9;
-          $scope.winterMath = vars.math11;
-          $scope.springMath = vars.math12;
-        }
-        else{
-
-        }
         if($scope.cSciLo){
           $scope.fallCoen = vars.core;
           $scope.winterCoen = vars.coen11;
@@ -185,7 +177,7 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
           $scope.winterSci = vars.phys31;
         }
 
-        if($scope.esci && $scope.chem){
+        if($scope.esci && $scope.chem && $scope.calcB){
           $scope.springMath = vars.amth108;
         }
         
@@ -206,13 +198,18 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
           $scope.fallSci = vars.candi1;
           $scope.winterSci = vars.candi2;
         }  
+        if($scope.calcReady){
+          $scope.fallMath = vars.math9;
+          $scope.winterMath = vars.math11;
+          $scope.springMath = vars.math12;
+        }
         $scope.loading=false; 
       }
 
     function errorCheck(){
       for(var i = 0; i < $scope.ap.length; i++){
         if($scope.ap[i] > 5 || $scope.ap[i] < 1 && $scope.ap[i] !== null){
-          $scope.errorMessage = 'Enter a number between 1 and 5';
+          $scope.ap[i] = '';
           return false;
         }
         else{
@@ -272,13 +269,8 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
           lowFlag = false;
         }
         /* Calc B removed, Calc AB is still passing */
-        else if($scope.ap[1] === 3){
-          $scope.calcB = false;
-          lowFlag = false;
-        }
         /* Reset to generic Math sequence */
         else{
-          $scope.calcA = false;
           $scope.calcB = false;
           lowFlag = false;
         }

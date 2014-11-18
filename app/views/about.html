@@ -12,7 +12,7 @@
 </div>
 <div class="row">
   <div class="col-25 cf">
-    <input type="text" class="classInput" ng-model="classFilter" placeholder="Filter AP classes" />
+    <!-- <input type="text" class="classInput" ng-model="classFilter" placeholder="Filter AP classes" /> -->
     <h3 style="text-align:center">Enter your AP credits</h3>
     <table class="classes">
         <tr class="classRow animate-repeat" ng-repeat="class in a | filter:classFilter">
@@ -28,40 +28,58 @@
       <i class="fa fa-exclamation-circle"></i> {{errorMessage}}
     </div>
     <h3 style="text-align:center">Check any transfer credits</h3>
-    <table class="classes marginBottom">
+    <table class="classes">
       <tr class="classRow">
         <td class="classCentered"> 
-          {{ vars.math11 }}<br>
+          Math 11<br>
           <input id="math11" type="checkbox" ng-click="change()" ng-change="selectAll()" ng-model="calcA" />
         </td>
         <td class="classCentered"> 
-          {{ vars.math12 }}<br>
+          Math 12<br>
           <input id="math12" type="checkbox" ng-click="change()" ng-change="selectAll()" ng-model="calcBhi" />
         </td>
         <td class="classCentered"> 
-          {{ vars.math13 }}<br>
+          Math 13<br>
           <input id="math13" type="checkbox" ng-click="change()" ng-change="selectAll()" ng-model="math13" />
         </td>
         <td class="classCentered"> 
-          {{ vars.math14 }}<br>
-          <input id="math14" type="checkbox" ng-click="selectAll()" ng-change="change()" ng-model="math14" />
+          Math 14<br>
+          <input id="math14" type="checkbox" ng-click="change()" ng-change="selectAll()" ng-model="math14" />
         </td>
       </tr>
       <tr class="classRow">
-        <td class="classCentered"> 
-          {{ vars.chem11 }}<br>
-          <input type="checkbox" ng-click="selectAll()" ng-change="change()" ng-model="chem" />
+         <td class="classCentered">
+         Math 53<br>
+         <input type="checkbox" ng-change="change()" ng-model="math53" />
         </td>
         <td class="classCentered"> 
-          {{ vars.phys31 }}<br>
-          <input type="checkbox" ng-click="selectAll()" ng-change="change()" ng-model="phys" />
+          Chem 11<br>
+          <input type="checkbox" ng-change="change()" ng-model="chem" />
         </td>
         <td class="classCentered"> 
-          {{ vars.phys32 }}<br>
-          <input type="checkbox" ng-click="selectAll()" ng-change="change()" ng-model="phys32" />
+          Physics 31<br>
+          <input type="checkbox" ng-change="change()" ng-model="phys" />
+        </td>
+        <td class="classCentered"> 
+          Physics 32<br>
+          <input type="checkbox" ng-change="change()" ng-model="phys32" />
+        </td>
+        
+      </tr>
+      <tr>
+        <td class="classCentered">
+         Coen 19<br>
+         <input type="checkbox" ng-change="change()" ng-model="coen19" />
+        </td>
+        <td class="classCentered"> 
+         Coen 20<br>
+         <input type="checkbox" ng-change="change()" ng-model="coen20" />
         </td>
       </tr>
     </table>
+    <a class="paddingLeft" href="http://www.scu.edu/studentrecords/transferguides/">Transfer Credit Guide</a>
+
+
     <h3 style="text-align:center">Other relevant questions</h3>
     <label class="otherQuestions">
       <input type="checkbox" ng-change="change()" ng-model="priorProg" />
@@ -72,20 +90,15 @@
       <input type="checkbox" ng-change="change()" ng-model="calcReady" />
       Did not pass Calculus Readiness Exam 
     </label>
+
     <div class="engr1">
     <h5>What quarter do you want ENGR 1?</h5>
-    <table>
-      <tr>
-        <td><label class="otherQuestions">
-      <input type="checkbox" ng-change="change()" ng-model="calcReady" />
-      Fall 
-    </label></td>
-        <td><label class="otherQuestions">
-      <input type="checkbox" ng-change="change()" ng-model="calcReady" />
-      Winter
-    </label></td>    
-      </tr>
-    </table>
+        <form>
+            <input type="radio" name="engr" ng-change="change()" ng-model="engrQtr" value="fall" />
+            Fall 
+            <input type="radio" name="engr" ng-change="change()" ng-model="engrQtr" value="winter" />
+            Winter
+        </form> 
     </div>
 
   </div>
@@ -101,9 +114,7 @@
         <div class="core">CORE</div>
       </div>
       <div class="schedule animate-show" ng-hide="loading">
-        <div ng-show="noChanges" class="alert-box error animate-show">
-          <i class="fa fa-exclamation-circle"></i> {{noChanges}}
-        </div>
+      <h1 style="text-align:center; margin-top:0;">Computer Engineering</h1>
         <table>
           <tr>
             <th>Fall</th>
@@ -115,37 +126,39 @@
           <tr>
             <td class="core">{{ vars.ctw1 }}</td>
             <td class="core">{{ vars.ctw2 }}</td>
-            <td class="math">{{ vars.coen19 }}</td>
+            <td id="spring19" class="math">{{ spring19 }}</td>
           </tr>
 
           <!-- MATH SEQUENCE -->
           <tr class="animate-show">
             <!--Math 9 Sequence-->   
-            <td class="math">{{ fallMath}}</td>
-            <td class="math">{{ winterMath }}</td>
-            <td class="math">{{ springMath }}</td>
+            <td id="fallMath" class="math">{{ fallMath }}</td>
+            <td id="winterMath" class="math">{{ winterMath }}</td>
+            <td id="springMath" class="math">{{ springMath }}</td>
           </tr>
             <!--Generic Sequence-->   
           <tr class="animate-show">
-            <td class="coen">{{ fallCoen }}</td>
-            <td class="coen">{{ winterCoen }}</td>
-            <td class="coen">{{ springCoen }}</td>
+            <td id="fallCoen" class="coen">{{ fallCoen }}</td>
+            <td id="winterCoen" class="coen">{{ winterCoen }}</td>
+            <td id="springCoen" class="coen">{{ springCoen }}</td>
           </tr>
             <!--Calc AB Sequence-->  
 
           <tr>
-            <td class="math">{{ fallSci }}</td>
-            <td class="math">{{ winterSci }}</td>
-            <td class="math">{{ springSci }}</td>
+            <td id="fallSci" class="math">{{ fallSci }}</td>
+            <td id="winterSci" class="math">{{ winterSci }}</td>
+            <td id="springSci" class="math">{{ springSci }}</td>
           </tr>
 
           <tr>
-            <td class="coen">{{ fallEng }}</td>
-            <td>{{ winterEng }}</td>
+            <td id="fallEng" class="coen">{{ fallEng }}</td>
+            <td id="winterEng">{{ winterEng }}</td>
             <td></td>
           </tr>
         </table>
-        <a href="" ng-click="print()"><button class="print">Print Schedule</button></a>
+        
+        <button ng-click="print()" class="button button-print">Print</button>
+        <button ng-click="reset()" class="button button-reset">Reset</button>
       </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('classmasterApp', ['ngAnimate','ngRoute'])
+
   .constant('variables', {
     calcA: 'Calculus AB',
     calcB: 'Calculus BC',
@@ -32,6 +33,7 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
     engr1: 'ENGR 1',
     core: 'University Core'
   })
+
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -42,6 +44,7 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
         redirectTo: '/'
       });
   })
+
   .controller('AboutCtrl',function ($window,$timeout,$scope,variables) {
     var vars = variables;
     $scope.vars = variables;
@@ -73,10 +76,11 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
         store: 'esci'
       }
     ];
+
+    $scope.spring19 = vars.coen19;
     $scope.fallMath = vars.math11;
     $scope.fallCoen = vars.coen10;
     $scope.fallSci = vars.chem11;
-    $scope.fallEng = vars.engr1;
 
     $scope.winterMath = vars.math12;
     $scope.winterCoen = vars.coen11;
@@ -85,7 +89,8 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
     $scope.springMath = vars.math13;
     $scope.springCoen = vars.coen12;
     $scope.springSci = vars.phys32;
-
+    $scope.fallEng = vars.engr1;
+    
     var lowFlag;
     $scope.calcA = false;
     $scope.calcB = false;
@@ -94,6 +99,7 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
     $scope.esci = false;
     $scope.cSciHi = false;
     $scope.cSciLo = false;
+    $scope.engrQtr = 'fall';
 
     /* Performs class resets on every scope digest */
     function classChanger(){
@@ -124,6 +130,7 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
           $scope.winterMath = vars.math13;
           $scope.springMath = vars.math14;
         }
+
         if($scope.cSciLo){
           $scope.fallCoen = vars.core;
           $scope.winterCoen = vars.coen11;
@@ -177,6 +184,18 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
           $scope.winterSci = vars.phys31;
         }
 
+        if($scope.math13){
+          $scope.fallMath = vars.math14;
+          $scope.winterMath = vars.amth106;
+          $scope.springMath = vars.amth108;
+        }
+
+        if($scope.math14){
+          $scope.fallMath = vars.math53;
+          $scope.winterMath = vars.amth106;
+          $scope.springMath = vars.amth108;
+        }
+
         if($scope.esci && $scope.chem && $scope.calcB){
           $scope.springMath = vars.amth108;
         }
@@ -194,15 +213,49 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
         if($scope.esci && !$scope.chem && !$scope.phys){
           $scope.fallSci = vars.core;
         }
+
         if($scope.esci && !$scope.chem && $scope.phys){
           $scope.fallSci = vars.candi1;
           $scope.winterSci = vars.candi2;
-        }  
+        } 
+
+        if($scope.esci && $scope.chem && $scope.math14){
+          $scope.winterMath = vars.amth108;
+          $scope.springMath = vars.core;
+        }
+
+        if($scope.coen19){
+          $('#spring19').removeClass().addClass('core');
+          $scope.spring19 = vars.core;
+        }
+        else{
+          $('#spring19').removeClass().addClass('math');
+          $scope.spring19 = vars.coen19;
+        }
+
+        if($scope.cSciHi && $scope.chem && $scope.phys && $scope.coen20){
+          $scope.springCoen = vars.core;
+        }
+
         if($scope.calcReady){
           $scope.fallMath = vars.math9;
           $scope.winterMath = vars.math11;
           $scope.springMath = vars.math12;
         }
+
+        if($scope.engrQtr === 'fall'){
+          $scope.fallEng = vars.engr1;
+          $scope.winterEng = '';
+          $('#fallEng').addClass('coen');
+          $('#winterEng').removeClass();
+        }
+        else if($scope.engrQtr === 'winter'){
+          $scope.fallEng = '';
+          $scope.winterEng = vars.engr1;
+          $('#winterEng').addClass('coen');
+          $('#fallEng').removeClass();
+        }
+
         $scope.loading=false; 
       }
 
@@ -217,6 +270,38 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
         }
       }
     }
+
+    $scope.reset = function(){
+      $scope.spring19 = vars.coen19;
+      $scope.fallMath = vars.math11;
+      $scope.fallCoen = vars.coen10;
+      $scope.fallSci = vars.chem11;
+
+      $scope.winterMath = vars.math12;
+      $scope.winterCoen = vars.coen11;
+      $scope.winterSci = vars.phys31;
+
+      $scope.springMath = vars.math13;
+      $scope.springCoen = vars.coen12;
+      $scope.springSci = vars.phys32;
+      $scope.fallEng = vars.engr1;
+
+      delete $scope.ap;
+      delete $scope.calcA;
+      delete $scope.calcB;
+      delete $scope.chem;
+      delete $scope.phys;
+      delete $scope.esci;
+      delete $scope.cSciHi;
+      delete $scope.cSciLo;
+      delete $scope.math13;
+      delete $scope.math14;
+      delete $scope.coen19;
+      delete $scope.coen20;
+      delete $scope.math53;
+      delete $scope.phys32;
+    };
+
     $scope.selectAll = function(){
         var checkbox = event.target;
         if(checkbox.checked){
@@ -270,8 +355,13 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
         }
         /* Calc B removed, Calc AB is still passing */
         /* Reset to generic Math sequence */
+        else if($scope.ap[0] >= 3 && $scope.ap[0] <= 5){
+          $scope.calcB = false;
+          lowFlag = false;
+        }
         else{
           $scope.calcB = false;
+          $scope.calcA = false;
           lowFlag = false;
         }
       }   

@@ -31,6 +31,8 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
     phys31: 'PHYS 31+L',
     phys32: 'PHYS 32+L',
     engr1: 'ENGR 1',
+    rel1: 'Religion 1',
+    natSci: 'Natural Science',
     core: 'University Core'
   })
 
@@ -50,6 +52,8 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
     $scope.vars = variables;
     $scope.ap = [];
     $scope.aps = {};
+    
+    //aptests
     $scope.a = [
       {
         name:vars.calcA,
@@ -77,20 +81,33 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
       }
     ];
 
+    //generic
     $scope.spring19 = vars.coen19;
+    $scope.compFallMath = vars.math11;
+    $scope.compFallCoen = vars.coen10;
+    $scope.compFallSci = vars.chem11;
+
+    $scope.compWinterMath = vars.math12;
+    $scope.compWinterCoen = vars.coen11;
+    $scope.compWinterSci = vars.phys31;
+
+    $scope.compSpringMath = vars.math13;
+    $scope.compSpringCoen = vars.coen12;
+    $scope.compSpringSci = vars.phys32;
+    $scope.fallEng = vars.engr1;
+
+    $scope.natSci = vars.natSci;
     $scope.fallMath = vars.math11;
     $scope.fallCoen = vars.coen10;
-    $scope.fallSci = vars.chem11;
 
     $scope.winterMath = vars.math12;
     $scope.winterCoen = vars.coen11;
-    $scope.winterSci = vars.phys31;
 
     $scope.springMath = vars.math13;
     $scope.springCoen = vars.coen12;
-    $scope.springSci = vars.phys32;
     $scope.fallEng = vars.engr1;
     
+    //resets
     var lowFlag;
     $scope.calcA = false;
     $scope.calcB = false;
@@ -103,125 +120,137 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
 
     /* Performs class resets on every scope digest */
     function classChanger(){
+      if($scope.priorProg){
+        $scope.cSciHi = true;
+      }
+      else if($scope.ap[2] < 3 && $scope.ap[2] > 5 || $scope.ap[2] === undefined){
+        $scope.cSciHi = false;
+      }
       /* Math Sequence */
         if($scope.calcA){
-          $scope.fallMath = vars.math12;
-          $scope.winterMath = vars.math13;
-          $scope.springMath = vars.math14;
+          $scope.compFallMath = vars.math12;
+          $scope.compWinterMath = vars.math13;
+          $scope.compSpringMath = vars.math14;
         }
         else{
-          $scope.fallMath = vars.math11;
-          $scope.winterMath = vars.math12;
-          $scope.springMath = vars.math13;
+          $scope.compFallMath = vars.math11;
+          $scope.compWinterMath = vars.math12;
+          $scope.compSpringMath = vars.math13;
         }
 
         if($scope.calcB){
-          $scope.fallMath = vars.math13;
-          $scope.winterMath = vars.math14;
-          $scope.springMath = vars.amth106;
+          $scope.compFallMath = vars.math13;
+          $scope.compWinterMath = vars.math14;
+          $scope.compSpringMath = vars.amth106;
         }
         else if(!$scope.calcA){
-          $scope.fallMath = vars.math11;
-          $scope.winterMath = vars.math12;
-          $scope.springMath = vars.math13;
+          $scope.compFallMath = vars.math11;
+          $scope.compWinterMath = vars.math12;
+          $scope.compSpringMath = vars.math13;
         }
         else{
-          $scope.fallMath = vars.math12;
-          $scope.winterMath = vars.math13;
-          $scope.springMath = vars.math14;
+          $scope.compFallMath = vars.math12;
+          $scope.compWinterMath = vars.math13;
+          $scope.compSpringMath = vars.math14;
         }
 
         if($scope.cSciLo){
-          $scope.fallCoen = vars.core;
-          $scope.winterCoen = vars.coen11;
-          $scope.springCoen = vars.coen12;
+          $scope.compFallCoen = vars.core;
+          $scope.compWinterCoen = vars.coen11;
+          $scope.compSpringCoen = vars.coen12;
         }
         
         if($scope.cSciLo && $scope.chem){
-          $scope.fallSci = vars.core;
-          $scope.fallCoen = vars.coen11;
-          $scope.winterCoen = vars.coen12;
-          $scope.springCoen = vars.coen20;
+          $scope.compFallSci = vars.core;
+          $scope.compFallCoen = vars.coen11;
+          $scope.compWinterCoen = vars.coen12;
+          $scope.compSpringCoen = vars.coen20;
         }
         else if($scope.cSciLo){
-          $scope.fallSci = vars.chem11;
+          $scope.compFallSci = vars.chem11;
         }
 
         if($scope.cSciHi && !$scope.phys){
           if(!$scope.chem){
-            $scope.fallCoen = vars.candi1;
-            $scope.winterCoen = vars.candi2;
-            $scope.springCoen = vars.coen12;
+            $scope.compFallCoen = vars.candi1;
+            $scope.compWinterCoen = vars.candi2;
+            $scope.compSpringCoen = vars.coen12;
           }
         }
         if($scope.cSciHi && $scope.phys && $scope.chem || $scope.esci){
-          $scope.fallCoen = vars.coen12;
-          $scope.winterCoen = vars.coen21;
-          $scope.springCoen = vars.coen20;
+          $scope.compFallCoen = vars.coen12;
+          $scope.compWinterCoen = vars.coen21;
+          $scope.compSpringCoen = vars.coen20;
         }
         else if($scope.cSciLo && !$scope.cSciHi && $scope.phys && $scope.chem || $scope.esci ){
-          $scope.fallCoen = vars.coen11;
-          $scope.winterCoen = vars.coen12;
-          $scope.springCoen = vars.coen20;
+          $scope.compFallCoen = vars.coen11;
+          $scope.compWinterCoen = vars.coen12;
+          $scope.compSpringCoen = vars.coen20;
         }
         if(!$scope.cSciLo && !$scope.cSciHi){
-          $scope.fallCoen = vars.coen10;
-          $scope.winterCoen = vars.coen11;
-          $scope.springCoen = vars.coen12;
+          $scope.compFallCoen = vars.coen10;
+          $scope.compWinterCoen = vars.coen11;
+          $scope.compSpringCoen = vars.coen12;
         }
 
         if($scope.chem){
-          $scope.fallSci = vars.core;
+          $scope.compFallSci = vars.core;
         }
         else{
-          $scope.fallSci = vars.chem11;
+          $scope.compFallSci = vars.chem11;
         }
 
         if($scope.phys){
-          $scope.winterSci = vars.core;
+          $scope.compWinterSci = vars.core;
         }
         else{
-          $scope.winterSci = vars.phys31;
+          $scope.compWinterSci = vars.phys31;
         }
 
         if($scope.math13){
-          $scope.fallMath = vars.math14;
-          $scope.winterMath = vars.amth106;
-          $scope.springMath = vars.amth108;
+          $scope.compFallMath = vars.math14;
+          $scope.compWinterMath = vars.amth106;
+          $scope.compSpringMath = vars.amth108;
         }
 
         if($scope.math14){
-          $scope.fallMath = vars.math53;
-          $scope.winterMath = vars.amth106;
-          $scope.springMath = vars.amth108;
+          $scope.compFallMath = vars.math53;
+          $scope.compWinterMath = vars.amth106;
+          $scope.compSpringMath = vars.amth108;
         }
 
         if($scope.esci && $scope.chem && $scope.calcB){
-          $scope.springMath = vars.amth108;
+          $scope.compSpringMath = vars.amth108;
+        }
+
+        if(!$scope.math13 && !$scope.math14 && !$scope.calcA && !$scope.calcB){
+          $scope.compFallMath = vars.math11;
+          $scope.compWinterMath = vars.math12;
+          $scope.compSpringMath = vars.math13;
         }
         
         if($scope.phys && $scope.chem){
-          $scope.fallSci = vars.candi1;
-          $scope.winterSci = vars.candi2;
+          $scope.compFallSci = vars.candi1;
+          $scope.compWinterSci = vars.candi2;
         }
         else if($scope.cSciHi){
-          $scope.fallCoen = vars.candi1;
-          $scope.winterCoen = vars.candi2;
-          $scope.springCoen = vars.coen12;
+          $scope.compFallCoen = vars.candi1;
+          $scope.compWinterCoen = vars.candi2;
+          $scope.compSpringCoen = vars.coen12;
         }
 
         if($scope.esci && !$scope.chem && !$scope.phys){
-          $scope.fallSci = vars.core;
+          $scope.compFallSci = vars.core;
         }
 
         if($scope.esci && !$scope.chem && $scope.phys){
-          $scope.fallSci = vars.candi1;
-          $scope.winterSci = vars.candi2;
+          $scope.compFallSci = vars.candi1;
+          $scope.compWinterSci = vars.candi2;
         } 
 
         if($scope.esci && $scope.chem && $scope.math14){
-          $scope.winterMath = vars.amth108;
-          $scope.springMath = vars.core;
+          $scope.compWinterMath = vars.amth108;
+          $scope.compSpringMath = vars.core;
         }
 
         if($scope.coen19){
@@ -234,15 +263,14 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
         }
 
         if($scope.cSciHi && $scope.chem && $scope.phys && $scope.coen20){
-          $scope.springCoen = vars.core;
+          $scope.compSpringCoen = vars.core;
         }
 
         if($scope.calcReady){
-          $scope.fallMath = vars.math9;
-          $scope.winterMath = vars.math11;
-          $scope.springMath = vars.math12;
+          $scope.compFallMath = vars.math9;
+          $scope.compWinterMath = vars.math11;
+          $scope.compSpringMath = vars.math12;
         }
-
         if($scope.engrQtr === 'fall'){
           $scope.fallEng = vars.engr1;
           $scope.winterEng = '';
@@ -273,18 +301,21 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
 
     $scope.reset = function(){
       $scope.spring19 = vars.coen19;
-      $scope.fallMath = vars.math11;
-      $scope.fallCoen = vars.coen10;
-      $scope.fallSci = vars.chem11;
+      $scope.compFallMath = vars.math11;
+      $scope.compFallCoen = vars.coen10;
+      $scope.compFallSci = vars.chem11;
 
-      $scope.winterMath = vars.math12;
-      $scope.winterCoen = vars.coen11;
-      $scope.winterSci = vars.phys31;
+      $scope.compWinterMath = vars.math12;
+      $scope.compWinterCoen = vars.coen11;
+      $scope.compWinterSci = vars.phys31;
 
-      $scope.springMath = vars.math13;
-      $scope.springCoen = vars.coen12;
-      $scope.springSci = vars.phys32;
+      $scope.compSpringMath = vars.math13;
+      $scope.compSpringCoen = vars.coen12;
+      $scope.compSpringSci = vars.phys32;
       $scope.fallEng = vars.engr1;
+      $('#fallEng').addClass('coen');
+      $scope.winterEng = '';
+      $('#winterEng').removeClass();
 
       delete $scope.ap;
       delete $scope.calcA;

@@ -1,10 +1,10 @@
 <div class="header">
     <h1 class="title">CLASSMASTER 3000</h1>
     <ul class="nav cf">
-        <label class="dropDown" > Change major:
-        <select type="select">
-          <option ng-model="coenMajor">Computer Engineering</option>
-          <option ng-model="webMajor">Web Design</option>
+        <label class="dropDown" > MAJOR:
+        <select type="select" ng-model="major">
+          <option value="coen">Computer Engineering</option>
+          <option value="web">Web Design</option>
         </select>
         </label>
       </li>
@@ -12,7 +12,7 @@
 </div>
 <div class="row">
   <div class="col-25 cf">
-    <!-- <input type="text" class="classInput" ng-model="classFilter" placeholder="Filter AP classes" /> -->
+    <input type="text" class="classInput" ng-model="classFilter" placeholder="Filter AP classes" />
     <h3 style="text-align:center">Enter your AP credits</h3>
     <table class="classes">
         <tr class="classRow animate-repeat" ng-repeat="class in a | filter:classFilter">
@@ -114,54 +114,103 @@
         <div class="core">CORE</div>
       </div>
       <div class="schedule animate-show" ng-hide="loading">
-      <h1 style="text-align:center; margin-top:0;">Computer Engineering</h1>
-        <table>
-          <tr>
-            <th>Fall</th>
-            <th>Winter</th>
-            <th>Spring</th>
-          </tr>
+        <h1 ng-hide="major" style="text-align:center">Select your major &#8599;</h1>
+        <div ng-if=" major == 'coen' ">
+          <h1 style="text-align:center; margin-top:0;">Computer Engineering</h1>
+            <table>
+              <tr>
+                <th>Fall</th>
+                <th>Winter</th>
+                <th>Spring</th>
+              </tr>
 
-          <!-- DEFAULT - WON'T CHANGE -->
-          <tr>
-            <td class="core">{{ vars.ctw1 }}</td>
-            <td class="core">{{ vars.ctw2 }}</td>
-            <td id="spring19" class="math">{{ spring19 }}</td>
-          </tr>
+              <!-- DEFAULT - WON'T CHANGE -->
+              <tr>
+                <td class="core">{{ vars.ctw1 }}</td>
+                <td class="core">{{ vars.ctw2 }}</td>
+                <td id="spring19" class="math">{{ spring19 }}</td>
+              </tr>
 
-          <!-- MATH SEQUENCE -->
-          <tr class="animate-show">
-            <!--Math 9 Sequence-->   
-            <td id="fallMath" class="math">{{ fallMath }}</td>
-            <td id="winterMath" class="math">{{ winterMath }}</td>
-            <td id="springMath" class="math">{{ springMath }}</td>
-          </tr>
-            <!--Generic Sequence-->   
-          <tr class="animate-show">
-            <td id="fallCoen" class="coen">{{ fallCoen }}</td>
-            <td id="winterCoen" class="coen">{{ winterCoen }}</td>
-            <td id="springCoen" class="coen">{{ springCoen }}</td>
-          </tr>
-            <!--Calc AB Sequence-->  
+              <!-- MATH SEQUENCE -->
+              <tr>
+                <!--Math 9 Sequence-->   
+                <td id="compFallMath" class="math">{{ compFallMath }}</td>
+                <td id="compWinterMath" class="math">{{ compWinterMath }}</td>
+                <td id="compSpringMath" class="math">{{ compSpringMath }}</td>
+              </tr>
+                <!--Generic Sequence-->   
+              <tr>
+                <td id="compFallCoen" class="coen">{{ compFallCoen }}</td>
+                <td id="compWinterCoen" class="coen">{{ compWinterCoen }}</td>
+                <td id="compSpringCoen" class="coen">{{ compSpringCoen }}</td>
+              </tr>
+                <!--Calc AB Sequence-->  
 
-          <tr>
-            <td id="fallSci" class="math">{{ fallSci }}</td>
-            <td id="winterSci" class="math">{{ winterSci }}</td>
-            <td id="springSci" class="math">{{ springSci }}</td>
-          </tr>
+              <tr>
+                <td id="compFallSci" class="math">{{ compFallSci }}</td>
+                <td id="compWinterSci" class="math">{{ compWinterSci }}</td>
+                <td id="compSpringSci" class="math">{{ compSpringSci }}</td>
+              </tr>
 
-          <tr>
-            <td id="fallEng" class="coen">{{ fallEng }}</td>
-            <td id="winterEng">{{ winterEng }}</td>
-            <td></td>
-          </tr>
-        </table>
-        
-        <button ng-click="print()" class="button button-print">Print</button>
-        <button ng-click="reset()" class="button button-reset">Reset</button>
-      </div>
+              <tr>
+                <td id="fallEng" class="coen">{{ fallEng }}</td>
+                <td id="winterEng">{{ winterEng }}</td>
+                <td></td>
+              </tr>
+            </table>
+            <button ng-click="print()" class="button button-print">Print</button>
+            <button ng-click="reset()" class="button button-reset">Reset</button>
+        </div>
+
+        <div ng-if=" major == 'web' ">
+          <h1 style="text-align:center; margin-top:0;">Web Design &amp; Engineering</h1>
+            <table>
+              <tr>
+                <th>Fall</th>
+                <th>Winter</th>
+                <th>Spring</th>
+              </tr>
+
+              <!-- DEFAULT - WON'T CHANGE -->
+              <tr>
+                <td class="math">{{ natSci }}</td>
+                <td class="core">{{ vars.candi1 }}</td>
+                <td id="spring19" class="core">{{ vars.candi2 }}</td>
+              </tr>
+
+              <!-- MATH SEQUENCE -->
+              <tr>
+                <!--Math 9 Sequence-->   
+                <td id="fallMath" class="math">{{ fallMath }}</td>
+                <td id="winterMath" class="math">{{ winterMath }}</td>
+                <td id="springMath" class="math">{{ springMath }}</td>
+              </tr>
+                <!--Generic Sequence-->   
+              
+                <!--Calc AB Sequence-->  
+
+              <tr>
+                <td id="fallSci" class="core">{{ vars.ctw1 }}</td>
+                <td id="winterSci" class="core">{{ vars.ctw2 }}</td>
+                <td id="springSci" class="core">{{ vars.rel1 }}</td>
+              </tr>
+              <tr>
+                <td id="fallCoen" class="coen">{{ fallCoen }}</td>
+                <td id="winterCoen" class="coen">{{ winterCoen }}</td>
+                <td id="springCoen" class="coen">{{ springCoen }}</td>
+              </tr>
+
+              <tr>
+                <td id="fallEng" class="coen">{{ fallEng }}</td>
+                <td id="winterEng">{{ winterEng }}</td>
+                <td></td>
+              </tr>
+            </table>
+            <button ng-click="print()" class="button button-print">Print</button>
+            <button ng-click="reset()" class="button button-reset">Reset</button>
+        </div>
+    </div>
   </div>
-</div>
 <div class="footer">
         <p>&copy; Ace's High 2014 
         Kyle Alwyn, Roshan Ramankutty, Taylor Roden, Astha Singh</p>

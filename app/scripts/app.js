@@ -156,64 +156,89 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
 
         if($scope.cSciLo){
           $scope.compFallCoen = vars.core;
+          $('#compFallCoen').removeClass().addClass('core');
           $scope.compWinterCoen = vars.coen11;
           $scope.compSpringCoen = vars.coen12;
         }
         
         if($scope.cSciLo && $scope.chem){
           $scope.compFallSci = vars.core;
+          $('#compFallSci').removeClass().addClass('core');
           $scope.compFallCoen = vars.coen11;
           $scope.compWinterCoen = vars.coen12;
           $scope.compSpringCoen = vars.coen20;
         }
         else if($scope.cSciLo){
+          $('#compFallSci').removeClass().addClass('math');
           $scope.compFallSci = vars.chem11;
         }
 
         if($scope.cSciHi && !$scope.phys){
           if(!$scope.chem){
+            $('#compFallCoen').removeClass().addClass('core');
+            $('#compWinterCoen').removeClass().addClass('core');
+            $('#compSpringCoen').removeClass().addClass('coen');
             $scope.compFallCoen = vars.candi1;
             $scope.compWinterCoen = vars.candi2;
             $scope.compSpringCoen = vars.coen12;
           }
         }
         if($scope.cSciHi && $scope.phys && $scope.chem || $scope.esci){
+          $('#compFallCoen').removeClass().addClass('coen');
+          $('#compWinterCoen').removeClass().addClass('coen');
+          $('#compSpringCoen').removeClass().addClass('coen');
           $scope.compFallCoen = vars.coen12;
           $scope.compWinterCoen = vars.coen21;
           $scope.compSpringCoen = vars.coen20;
         }
         else if($scope.cSciLo && !$scope.cSciHi && $scope.phys && $scope.chem || $scope.esci ){
+          $('#compFallCoen').removeClass().addClass('coen');
+          $('#compWinterCoen').removeClass().addClass('coen');
+          $('#compSpringCoen').removeClass().addClass('coen');
           $scope.compFallCoen = vars.coen11;
           $scope.compWinterCoen = vars.coen12;
           $scope.compSpringCoen = vars.coen20;
         }
         if(!$scope.cSciLo && !$scope.cSciHi){
+          $('#compFallCoen').removeClass().addClass('coen');
+          $('#compWinterCoen').removeClass().addClass('coen');
+          $('#compSpringCoen').removeClass().addClass('coen');
           $scope.compFallCoen = vars.coen10;
           $scope.compWinterCoen = vars.coen11;
           $scope.compSpringCoen = vars.coen12;
         }
 
         if($scope.chem){
+          $('#compFallSci').removeClass().addClass('core');
           $scope.compFallSci = vars.core;
         }
         else{
+          $('#compFallSci').removeClass().addClass('math');
           $scope.compFallSci = vars.chem11;
         }
 
         if($scope.phys){
+          $('#compWinterSci').removeClass().addClass('core');
           $scope.compWinterSci = vars.core;
         }
         else{
+          $('#compWinterSci').removeClass().addClass('math');
           $scope.compWinterSci = vars.phys31;
         }
 
         if($scope.math13){
+          $('#compFallMath').removeClass().addClass('math');
+          $('#compWinterMath').removeClass().addClass('math');
+          $('#compSpringMath').removeClass().addClass('math');
           $scope.compFallMath = vars.math14;
           $scope.compWinterMath = vars.amth106;
           $scope.compSpringMath = vars.amth108;
         }
 
         if($scope.math14){
+          $('#compFallMath').removeClass().addClass('math');
+          $('#compWinterMath').removeClass().addClass('math');
+          $('#compSpringMath').removeClass().addClass('math');
           $scope.compFallMath = vars.math53;
           $scope.compWinterMath = vars.amth106;
           $scope.compSpringMath = vars.amth108;
@@ -224,31 +249,43 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
         }
 
         if(!$scope.math13 && !$scope.math14 && !$scope.calcA && !$scope.calcB){
+          $('#compFallMath').removeClass().addClass('math');
+          $('#compWinterMath').removeClass().addClass('math');
+          $('#compSpringMath').removeClass().addClass('math');
           $scope.compFallMath = vars.math11;
           $scope.compWinterMath = vars.math12;
           $scope.compSpringMath = vars.math13;
         }
         
         if($scope.phys && $scope.chem){
+          $('#compFallSci').removeClass().addClass('core');
+          $('#compWinterSci').removeClass().addClass('core');
           $scope.compFallSci = vars.candi1;
           $scope.compWinterSci = vars.candi2;
         }
         else if($scope.cSciHi){
+          $('#compFallCoen').removeClass().addClass('core');
+          $('#compWinterCoen').removeClass().addClass('core');
           $scope.compFallCoen = vars.candi1;
           $scope.compWinterCoen = vars.candi2;
           $scope.compSpringCoen = vars.coen12;
         }
 
         if($scope.esci && !$scope.chem && !$scope.phys){
+          $('#compFallSci').removeClass().addClass('core');
           $scope.compFallSci = vars.core;
         }
 
         if($scope.esci && !$scope.chem && $scope.phys){
+          $('#compFallSci').removeClass().addClass('core');
+          $('#compWinterSci').removeClass().addClass('core');
           $scope.compFallSci = vars.candi1;
           $scope.compWinterSci = vars.candi2;
         } 
 
         if($scope.esci && $scope.chem && $scope.math14){
+          $('#compWinterMath').removeClass().addClass('math');
+          $('#compSpringMath').removeClass().addClass('core');
           $scope.compWinterMath = vars.amth108;
           $scope.compSpringMath = vars.core;
         }
@@ -263,10 +300,14 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
         }
 
         if($scope.cSciHi && $scope.chem && $scope.phys && $scope.coen20){
+          $('#compSpringCoen').removeClass().addClass('core');
           $scope.compSpringCoen = vars.core;
         }
 
         if($scope.calcReady){
+          $('#compFallMath').removeClass().addClass('math');
+          $('#compWinterMath').removeClass().addClass('math');
+          $('#compSpringMath').removeClass().addClass('math');
           $scope.compFallMath = vars.math9;
           $scope.compWinterMath = vars.math11;
           $scope.compSpringMath = vars.math12;

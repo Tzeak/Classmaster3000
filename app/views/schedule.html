@@ -12,91 +12,90 @@
 </div>
 <div class="row">
   <div class="col-25 cf">
-    <input type="text" class="classInput" ng-model="classFilter" placeholder="Filter AP classes" />
-    <h3 style="text-align:center">Enter your AP credits</h3>
+    <h3 style="text-align:center">Enter AP credits<br>(1-5)</h3>
     <table class="classes">
-        <tr class="classRow animate-repeat" ng-repeat="class in a | filter:classFilter">
+        <tr class="classRow animate-repeat" ng-repeat="class in a">
           <td class="className"> 
             {{ class.name }}
           </td>
           <td>
-            <input class="userScore" ng-change="change(class.store, ap[$index])" type="number" ng-model="ap[$index]" />
+            <input class="userScore" ng-change="change(class.store, ap[$index])" type="number" ng-model="ap[$index]" ng-disabled="!major" />
           </td>
         </tr>
     </table>
-    <div ng-show="errorMessage" class="alert-box error animate-show">
-      <i class="fa fa-exclamation-circle"></i> {{errorMessage}}
-    </div>
+
+
     <h3 style="text-align:center">Check any transfer credits</h3>
     <table class="classes">
       <tr class="classRow">
         <td class="classCentered"> 
           Math 11<br>
-          <input id="math11" type="checkbox" ng-click="change()" ng-change="selectAll()" ng-model="calcA" />
+          <input id="math11" ng-disabled="!major" type="checkbox" ng-click="change()" ng-model="calcA" />
         </td>
         <td class="classCentered"> 
           Math 12<br>
-          <input id="math12" type="checkbox" ng-click="change()" ng-change="selectAll()" ng-model="calcBhi" />
+          <input id="math12" ng-disabled="!major" type="checkbox" ng-click="change()" ng-model="calcB" />
         </td>
         <td class="classCentered"> 
           Math 13<br>
-          <input id="math13" type="checkbox" ng-click="change()" ng-change="selectAll()" ng-model="math13" />
+          <input id="math13" ng-disabled="!major" type="checkbox" ng-click="change()" ng-model="math13" />
         </td>
         <td class="classCentered"> 
           Math 14<br>
-          <input id="math14" type="checkbox" ng-click="change()" ng-change="selectAll()" ng-model="math14" />
+          <input id="math14" ng-disabled="!major" type="checkbox" ng-click="change()" ng-model="math14" />
         </td>
       </tr>
       <tr class="classRow">
          <td class="classCentered">
          Math 53<br>
-         <input type="checkbox" ng-change="change()" ng-model="math53" />
+         <input type="checkbox" ng-disabled="!major" ng-change="change()" ng-model="math53" />
         </td>
         <td class="classCentered"> 
           Chem 11<br>
-          <input type="checkbox" ng-change="change()" ng-model="chem" />
+          <input type="checkbox" ng-disabled="!major" ng-change="change()" ng-model="chem" />
         </td>
         <td class="classCentered"> 
           Physics 31<br>
-          <input type="checkbox" ng-change="change()" ng-model="phys" />
+          <input type="checkbox" ng-disabled="!major" ng-change="change()" ng-model="phys" />
         </td>
         <td class="classCentered"> 
           Physics 32<br>
-          <input type="checkbox" ng-change="change()" ng-model="phys32" />
+          <input type="checkbox" ng-disabled="!major" ng-change="change()" ng-model="phys32" />
         </td>
         
       </tr>
       <tr>
         <td class="classCentered">
          Coen 19<br>
-         <input type="checkbox" ng-change="change()" ng-model="coen19" />
+         <input type="checkbox" ng-disabled="!major" ng-change="change()" ng-model="coen19" />
         </td>
         <td class="classCentered"> 
          Coen 20<br>
-         <input type="checkbox" ng-change="change()" ng-model="coen20" />
+         <input type="checkbox" ng-disabled="!major" ng-change="change()" ng-model="coen20" />
         </td>
       </tr>
     </table>
-    <a class="paddingLeft" href="http://www.scu.edu/studentrecords/transferguides/">Transfer Credit Guide</a>
+    <a class="paddingLeft" href="http://www.scu.edu/studentrecords/transferguides/" target="_blank">Transfer Credit Guide</a>
 
 
     <h3 style="text-align:center">Other relevant questions</h3>
     <label class="otherQuestions">
-      <input type="checkbox" ng-change="change()" ng-model="priorProg" />
-      Prior programming experience? 
+      <input type="checkbox" ng-disabled="!major" ng-change="change()" ng-model="priorProg" />
+      Prior programming experience?
+      <p class="programming">Functions, loops, and conditional statements</p>
     </label>
     </br>
     <label class="otherQuestions">
-      <input type="checkbox" ng-change="change()" ng-model="calcReady" />
+      <input type="checkbox" ng-disabled="!major" ng-change="change()" ng-model="calcReady" />
       Did not pass Calculus Readiness Exam 
     </label>
 
     <div class="engr1">
     <h5>What quarter do you want ENGR 1?</h5>
         <form>
-            <input type="radio" name="engr" ng-change="change()" ng-model="engrQtr" value="fall" />
+            <input type="radio" ng-disabled="!major" name="engr" ng-change="change()" ng-model="engrQtr" value="fall" />
             Fall 
-            <input type="radio" name="engr" ng-change="change()" ng-model="engrQtr" value="winter" />
+            <input type="radio" ng-disabled="!major" name="engr" ng-change="change()" ng-model="engrQtr" value="winter" />
             Winter
         </form> 
     </div>
@@ -173,9 +172,9 @@
 
               <!-- DEFAULT - WON'T CHANGE -->
               <tr>
-                <td class="math">{{ natSci }}</td>
+                <td id = "fallSci" class="math">{{ natSci }}</td>
                 <td class="core">{{ vars.candi1 }}</td>
-                <td id="spring19" class="core">{{ vars.candi2 }}</td>
+                <td class="core">{{ vars.candi2 }}</td>
               </tr>
 
               <!-- MATH SEQUENCE -->
@@ -190,9 +189,9 @@
                 <!--Calc AB Sequence-->  
 
               <tr>
-                <td id="fallSci" class="core">{{ vars.ctw1 }}</td>
-                <td id="winterSci" class="core">{{ vars.ctw2 }}</td>
-                <td id="springSci" class="core">{{ vars.rel1 }}</td>
+                <td class="core">{{ vars.ctw1 }}</td>
+                <td class="core">{{ vars.ctw2 }}</td>
+                <td class="core">{{ vars.rel1 }}</td>
               </tr>
               <tr>
                 <td id="fallCoen" class="coen">{{ fallCoen }}</td>
@@ -211,7 +210,7 @@
         </div>
     </div>
   </div>
-<div class="footer">
+<!-- <div class="footer">
         <p>&copy; Ace's High 2014 
         Kyle Alwyn, Roshan Ramankutty, Taylor Roden, Astha Singh</p>
-</div>
+</div> -->

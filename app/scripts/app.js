@@ -33,21 +33,23 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
     engr1: 'ENGR 1',
     rel1: 'Religion 1',
     natSci: 'Natural Science',
-    core: 'University Core'
+    core: 'University Core',
+    free: 'Free Elective',
+    coen60: 'COEN 60'
   })
 
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+        templateUrl: 'views/schedule.html',
+        controller: 'ScheduleCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
   })
 
-  .controller('AboutCtrl',function ($window,$timeout,$scope,variables) {
+  .controller('ScheduleCtrl',function ($window,$timeout,$scope,$route, variables) {
     var vars = variables;
     $scope.vars = variables;
     $scope.ap = [];
@@ -96,6 +98,7 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
     $scope.compSpringSci = vars.phys32;
     $scope.fallEng = vars.engr1;
 
+    //WDE
     $scope.natSci = vars.natSci;
     $scope.fallMath = vars.math11;
     $scope.fallCoen = vars.coen10;
@@ -128,166 +131,340 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
       }
       /* Math Sequence */
         if($scope.calcA){
+          //CSE
           $scope.compFallMath = vars.math12;
+          $('#compFallMath').removeClass().addClass('math');
           $scope.compWinterMath = vars.math13;
+          $('#compWinterMath').removeClass().addClass('math');
           $scope.compSpringMath = vars.math14;
+          $('#compSpringMath').removeClass().addClass('math');
+
+          //WDE
+          $scope.fallMath = vars.math12;
+          $('#fallMath').removeClass().addClass('math');
+          $scope.winterMath = vars.math13;
+          $('#winterMath').removeClass().addClass('math');
+          $scope.springMath = vars.math14;
+          $('#springMath').removeClass().addClass('math');
         }
         else{
+          //CSE
           $scope.compFallMath = vars.math11;
+          $('#compFallMath').removeClass().addClass('math');
           $scope.compWinterMath = vars.math12;
+          $('#compWinterMath').removeClass().addClass('math');
           $scope.compSpringMath = vars.math13;
+          $('#compSpringMath').removeClass().addClass('math');
+
+          //WDE
+          $scope.fallMath = vars.math11;
+          $('#fallMath').removeClass().addClass('math');
+          $scope.winterMath = vars.math12;
+          $('#winterMath').removeClass().addClass('math');
+          $scope.springMath = vars.math13;
+          $('#springMath').removeClass().addClass('math');
         }
 
         if($scope.calcB){
+          //CSE
           $scope.compFallMath = vars.math13;
+          $('#compFallMath').removeClass().addClass('math');
           $scope.compWinterMath = vars.math14;
+          $('#compWinterMath').removeClass().addClass('math');
           $scope.compSpringMath = vars.amth106;
+          $('#compSpringMath').removeClass().addClass('math');
+
+          //WDE
+          $scope.fallMath = vars.math13;
+          $('#fallMath').removeClass().addClass('math');
+          $scope.winterMath = vars.math14;
+          $('#winterMath').removeClass().addClass('math');
+          $scope.springMath = vars.amth106;
+          $('#springMath').removeClass().addClass('math');
         }
         else if(!$scope.calcA){
           $scope.compFallMath = vars.math11;
+          $('#compFallMath').removeClass().addClass('math');
           $scope.compWinterMath = vars.math12;
+          $('#compWinterMath').removeClass().addClass('math');
           $scope.compSpringMath = vars.math13;
+          $('#compSpringMath').removeClass().addClass('math');
+
+          //WDE
+          $scope.fallMath = vars.math11;
+          $('#fallMath').removeClass().addClass('math');
+          $scope.winterMath = vars.math12;
+          $('#winterMath').removeClass().addClass('math');
+          $scope.springMath = vars.math13;  
+          $('#springMath').removeClass().addClass('math');      
         }
         else{
           $scope.compFallMath = vars.math12;
+          $('#compFallCoen').removeClass().addClass('math');
           $scope.compWinterMath = vars.math13;
+          $('#compWinterMath').removeClass().addClass('math');
           $scope.compSpringMath = vars.math14;
+          $('#compSpringMath').removeClass().addClass('math');
+          //WDE
+          $scope.fallMath = vars.math12;
+          $('#fallMath').removeClass().addClass('math');
+          $scope.winterMath = vars.math13;
+          $('#winterMath').removeClass().addClass('math');
+          $scope.springMath = vars.math14;
+          $('#springMath').removeClass().addClass('math');
         }
 
         if($scope.cSciLo){
           $scope.compFallCoen = vars.core;
           $('#compFallCoen').removeClass().addClass('core');
           $scope.compWinterCoen = vars.coen11;
+          $('#compWinterCoen').removeClass().addClass('coen');
           $scope.compSpringCoen = vars.coen12;
+          $('#compSpringCoen').removeClass().addClass('coen');
+
+          //WDE
+          $scope.fallCoen = vars.coen11;
+          $('#fallCoen').removeClass().addClass('coen');
+          $scope.winterCoen = vars.coen12;
+          $('#winterCoen').removeClass().addClass('coen');
+          $scope.springCoen = vars.coen60;
+          $('#springCoen').removeClass().addClass('coen');
         }
         
         if($scope.cSciLo && $scope.chem){
           $scope.compFallSci = vars.core;
           $('#compFallSci').removeClass().addClass('core');
           $scope.compFallCoen = vars.coen11;
+          $('#compFallCoen').removeClass().addClass('coen');
           $scope.compWinterCoen = vars.coen12;
+          $('#compWinterCoen').removeClass().addClass('coen');
           $scope.compSpringCoen = vars.coen20;
+          $('#compSpringCoen').removeClass().addClass('coen');
+
+          //WDE
+          $scope.natSci = vars.core;
+          $('#natSci').removeClass().addClass('core');
+          $scope.fallCoen = vars.coen11;
+          $('#fallCoen').removeClass().addClass('coen');
+          $scope.winterCoen = vars.coen12;
+          $('#winterCoen').removeClass().addClass('coen');
+          $scope.springCoen = vars.coen60;
+          $('#springCoen').removeClass().addClass('coen');
         }
         else if($scope.cSciLo){
-          $('#compFallSci').removeClass().addClass('math');
           $scope.compFallSci = vars.chem11;
+          $('#compFallSci').removeClass().addClass('math');
+          $scope.natSci = vars.natSci;
+          $('#natSci').removeClass().addClass('math');
         }
 
         if($scope.cSciHi && !$scope.phys){
           if(!$scope.chem){
-            $('#compFallCoen').removeClass().addClass('core');
-            $('#compWinterCoen').removeClass().addClass('core');
-            $('#compSpringCoen').removeClass().addClass('coen');
             $scope.compFallCoen = vars.candi1;
+            $('#compFallCoen').removeClass().addClass('core');
             $scope.compWinterCoen = vars.candi2;
+            $('#compWinterCoen').removeClass().addClass('core');
             $scope.compSpringCoen = vars.coen12;
+            $('#compSpringCoen').removeClass().addClass('coen');
+
+            //WDE
+            $scope.fallCoen = vars.coen12;
+            $('#fallCoen').removeClass().addClass('coen');
+            $scope.winterCoen = vars.coen60;
+            $('#winterCoen').removeClass().addClass('coen');
+            $scope.springCoen = vars.free;
+            $('#springCoen').removeClass().addClass('core');
           }
         }
         if($scope.cSciHi && $scope.phys && $scope.chem || $scope.esci){
-          $('#compFallCoen').removeClass().addClass('coen');
-          $('#compWinterCoen').removeClass().addClass('coen');
-          $('#compSpringCoen').removeClass().addClass('coen');
           $scope.compFallCoen = vars.coen12;
+          $('#compFallCoen').removeClass().addClass('coen');
           $scope.compWinterCoen = vars.coen21;
+          $('#compWinterCoen').removeClass().addClass('coen');
           $scope.compSpringCoen = vars.coen20;
+          $('#compSpringCoen').removeClass().addClass('coen');
+
+          //WDE
+          $scope.fallCoen = vars.coen12;
+          $('#fallCoen').removeClass().addClass('coen');
+          $scope.winterCoen = vars.coen60;
+          $('#winterCoen').removeClass().addClass('coen');
+          $scope.springCoen = vars.free;
+          $('#springCoen').removeClass().addClass('core');
         }
         else if($scope.cSciLo && !$scope.cSciHi && $scope.phys && $scope.chem || $scope.esci ){
-          $('#compFallCoen').removeClass().addClass('coen');
-          $('#compWinterCoen').removeClass().addClass('coen');
-          $('#compSpringCoen').removeClass().addClass('coen');
           $scope.compFallCoen = vars.coen11;
+          $('#compFallCoen').removeClass().addClass('coen');
           $scope.compWinterCoen = vars.coen12;
+          $('#compWinterCoen').removeClass().addClass('coen');
           $scope.compSpringCoen = vars.coen20;
+          $('#compSpringCoen').removeClass().addClass('coen');
+
+          //WDE
+          $scope.fallCoen = vars.coen11;
+          $('#fallCoen').removeClass().addClass('coen');
+          $scope.winterCoen = vars.coen12;
+          $('#winterCoen').removeClass().addClass('coen');
+          $scope.springCoen = vars.coen20;
+          $('#springCoen').removeClass().addClass('coen');
         }
         if(!$scope.cSciLo && !$scope.cSciHi){
-          $('#compFallCoen').removeClass().addClass('coen');
-          $('#compWinterCoen').removeClass().addClass('coen');
-          $('#compSpringCoen').removeClass().addClass('coen');
           $scope.compFallCoen = vars.coen10;
+          $('#compFallCoen').removeClass().addClass('coen');
           $scope.compWinterCoen = vars.coen11;
+          $('#compWinterCoen').removeClass().addClass('coen');
           $scope.compSpringCoen = vars.coen12;
+          $('#compSpringCoen').removeClass().addClass('coen');
+
+          //WDE
+          $scope.fallCoen = vars.coen10;
+          $('#fallCoen').removeClass().addClass('coen');
+          $scope.winterCoen = vars.coen11;
+          $('#winterCoen').removeClass().addClass('coen');
+          $scope.springCoen = vars.coen12;
+          $('#winterCoen').removeClass().addClass('coen');
         }
 
         if($scope.chem){
-          $('#compFallSci').removeClass().addClass('core');
           $scope.compFallSci = vars.core;
+          $('#compFallSci').removeClass().addClass('core');
+
+          $scope.natSci = vars.core;
+          $('#fallSci').removeClass().addClass('core');
         }
         else{
-          $('#compFallSci').removeClass().addClass('math');
           $scope.compFallSci = vars.chem11;
+          $('#compFallSci').removeClass().addClass('math');
+
+          $scope.natSci = vars.natSci;
+          $('#fallSci').removeClass().addClass('math');
         }
 
         if($scope.phys){
-          $('#compWinterSci').removeClass().addClass('core');
           $scope.compWinterSci = vars.core;
+          $('#compWinterSci').removeClass().addClass('core');
         }
         else{
-          $('#compWinterSci').removeClass().addClass('math');
           $scope.compWinterSci = vars.phys31;
+          $('#compWinterSci').removeClass().addClass('math');
         }
 
         if($scope.math13){
-          $('#compFallMath').removeClass().addClass('math');
-          $('#compWinterMath').removeClass().addClass('math');
-          $('#compSpringMath').removeClass().addClass('math');
           $scope.compFallMath = vars.math14;
+          $('#compFallMath').removeClass().addClass('math');
           $scope.compWinterMath = vars.amth106;
+          $('#compWinterMath').removeClass().addClass('math');
           $scope.compSpringMath = vars.amth108;
+          $('#compSpringMath').removeClass().addClass('math');
+
+          $scope.fallMath = vars.math14;
+          $('#fallMath').removeClass().addClass('math');
+          $scope.winterMath = vars.amth106;
+          $('#winterMath').removeClass().addClass('math');
+          $scope.springMath = vars.amth108;
+          $('#springMath').removeClass().addClass('math');
         }
 
         if($scope.math14){
-          $('#compFallMath').removeClass().addClass('math');
-          $('#compWinterMath').removeClass().addClass('math');
-          $('#compSpringMath').removeClass().addClass('math');
           $scope.compFallMath = vars.math53;
+          $('#compFallMath').removeClass().addClass('math');
           $scope.compWinterMath = vars.amth106;
+          $('#compWinterMath').removeClass().addClass('math');
           $scope.compSpringMath = vars.amth108;
+          $('#compSpringMath').removeClass().addClass('math');
+
+          $scope.fallMath = vars.core;
+          $('#fallMath').removeClass().addClass('core');
+          $scope.winterMath = vars.amth106;
+          $('#winterMath').removeClass().addClass('math');
+          $scope.springMath = vars.amth108;
+          $('#springMath').removeClass().addClass('math');
         }
 
         if($scope.esci && $scope.chem && $scope.calcB){
           $scope.compSpringMath = vars.amth108;
+          $scope.springMath = vars.amth108;
+          $('#compSpringMath').removeClass().addClass('math');
+          $('#SpringMath').removeClass().addClass('math');
+
         }
 
         if(!$scope.math13 && !$scope.math14 && !$scope.calcA && !$scope.calcB){
-          $('#compFallMath').removeClass().addClass('math');
-          $('#compWinterMath').removeClass().addClass('math');
-          $('#compSpringMath').removeClass().addClass('math');
           $scope.compFallMath = vars.math11;
+          $('#compFallMath').removeClass().addClass('math');
           $scope.compWinterMath = vars.math12;
+          $('#compWinterMath').removeClass().addClass('math');
           $scope.compSpringMath = vars.math13;
+          $('#compSpringMath').removeClass().addClass('math');
+
+          //WDE
+          $scope.fallMath = vars.math11;
+          $('#fallMath').removeClass().addClass('math');
+          $scope.winterMath = vars.math12;
+          $('#fallMath').removeClass().addClass('math');
+          $scope.springMath = vars.math13;
+          $('#fallMath').removeClass().addClass('math');
         }
         
         if($scope.phys && $scope.chem){
-          $('#compFallSci').removeClass().addClass('core');
-          $('#compWinterSci').removeClass().addClass('core');
           $scope.compFallSci = vars.candi1;
+          $('#compFallSci').removeClass().addClass('core');
           $scope.compWinterSci = vars.candi2;
+          $('#compWinterSci').removeClass().addClass('core');
+
+          //WDE
+          $scope.natSci = vars.core;
+          $('#fallSci').removeClass().addClass('core');
         }
         else if($scope.cSciHi){
-          $('#compFallCoen').removeClass().addClass('core');
-          $('#compWinterCoen').removeClass().addClass('core');
           $scope.compFallCoen = vars.candi1;
+          $('#compFallCoen').removeClass().addClass('core');
           $scope.compWinterCoen = vars.candi2;
+          $('#compWinterCoen').removeClass().addClass('core');
           $scope.compSpringCoen = vars.coen12;
+          $('#compSpringCoen').removeClass().addClass('coen');
+
+          //WDE
+          $scope.fallCoen = vars.coen12;
+          $('#fallCoen').removeClass().addClass('coen');
+          $scope.winterCoen = vars.coen60;
+          $('#winterCoen').removeClass().addClass('coen');
+          $scope.springCoen = vars.free;
+          $('#springCoen').removeClass().addClass('core');
         }
 
         if($scope.esci && !$scope.chem && !$scope.phys){
-          $('#compFallSci').removeClass().addClass('core');
           $scope.compFallSci = vars.core;
+          $('#compFallSci').removeClass().addClass('core');
+
+          //WDE
+          $scope.natSci = vars.core;
+          $('#fallSci').removeClass().addClass('core');
         }
 
         if($scope.esci && !$scope.chem && $scope.phys){
-          $('#compFallSci').removeClass().addClass('core');
-          $('#compWinterSci').removeClass().addClass('core');
           $scope.compFallSci = vars.candi1;
+          $('#compFallSci').removeClass().addClass('core');
           $scope.compWinterSci = vars.candi2;
+          $('#compFallSci').removeClass().addClass('core');
+
+          //WDE
+          $scope.natSci = vars.core;
+          $('#fallSci').removeClass().addClass('core');
         } 
 
         if($scope.esci && $scope.chem && $scope.math14){
-          $('#compWinterMath').removeClass().addClass('math');
-          $('#compSpringMath').removeClass().addClass('core');
           $scope.compWinterMath = vars.amth108;
+          $('#compWinterMath').removeClass().addClass('math');
           $scope.compSpringMath = vars.core;
+          $('#compSpringMath').removeClass().addClass('core');
+
+          //WDE
+          $scope.winterMath = vars.amth108;
+          $('#winterMath').removeClass().addClass('math');
+          $scope.springMath = vars.core;
+          $('#springMath').removeClass().addClass('core');
+
         }
 
         if($scope.coen19){
@@ -300,17 +477,26 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
         }
 
         if($scope.cSciHi && $scope.chem && $scope.phys && $scope.coen20){
-          $('#compSpringCoen').removeClass().addClass('core');
           $scope.compSpringCoen = vars.core;
+          $('#compSpringCoen').removeClass().addClass('core');
         }
-
+        if($scope.phys32){
+          $scope.compSpringSci = vars.core;
+          $('#compSpringSci').removeClass().addClass('core');
+        }
+        else{
+          $scope.compSpringSci = vars.phys32;
+          $('#compSpringSci').removeClass().addClass('math');
+        }
         if($scope.calcReady){
-          $('#compFallMath').removeClass().addClass('math');
-          $('#compWinterMath').removeClass().addClass('math');
-          $('#compSpringMath').removeClass().addClass('math');
           $scope.compFallMath = vars.math9;
           $scope.compWinterMath = vars.math11;
           $scope.compSpringMath = vars.math12;
+
+          //WDE
+          $scope.fallMath = vars.math9;
+          $scope.winterMath = vars.math11;
+          $scope.springMath = vars.math12;
         }
         if($scope.engrQtr === 'fall'){
           $scope.fallEng = vars.engr1;
@@ -325,7 +511,6 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
           $('#fallEng').removeClass();
         }
 
-        $scope.loading=false; 
       }
 
     function errorCheck(){
@@ -341,38 +526,8 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
     }
 
     $scope.reset = function(){
-      $scope.spring19 = vars.coen19;
-      $scope.compFallMath = vars.math11;
-      $scope.compFallCoen = vars.coen10;
-      $scope.compFallSci = vars.chem11;
-
-      $scope.compWinterMath = vars.math12;
-      $scope.compWinterCoen = vars.coen11;
-      $scope.compWinterSci = vars.phys31;
-
-      $scope.compSpringMath = vars.math13;
-      $scope.compSpringCoen = vars.coen12;
-      $scope.compSpringSci = vars.phys32;
-      $scope.fallEng = vars.engr1;
-      $('#fallEng').addClass('coen');
-      $scope.winterEng = '';
-      $('#winterEng').removeClass();
-
-      delete $scope.ap;
-      delete $scope.calcA;
-      delete $scope.calcB;
-      delete $scope.chem;
-      delete $scope.phys;
-      delete $scope.esci;
-      delete $scope.cSciHi;
-      delete $scope.cSciLo;
-      delete $scope.math13;
-      delete $scope.math14;
-      delete $scope.coen19;
-      delete $scope.coen20;
-      delete $scope.math53;
-      delete $scope.phys32;
-    };
+      $route.reload();      
+    }
 
     $scope.selectAll = function(){
         var checkbox = event.target;
@@ -395,7 +550,6 @@ angular.module('classmasterApp', ['ngAnimate','ngRoute'])
     };
 
     $scope.change = function(test, score){
-      $scope.loading = true;
       errorCheck();
       //User is inputting into Calclus AB box
       if(test === 'calcA'){

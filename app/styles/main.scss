@@ -31,7 +31,7 @@ html,body {
   position:absolute;
   top:0;left:0;
   width:100%;
-  height:100%;
+  height:100vh;
   background:url('../images/scu.jpg') no-repeat center center;
   background-size:cover;
 }
@@ -73,7 +73,6 @@ html,body {
 .container{
   height:100vh;
   width:100%;
-  margin-bottom: -100px;
 }
 
 .btn {
@@ -138,13 +137,12 @@ html,body {
     position:relative;
     width:100%;
     margin:0 auto;
-    border-spacing:15px 2px;
+    border-spacing:2px 2px;
     border-collapse: separate;
   }
   td{
     text-align: center;
     width:33.3%;
-    border-radius: 10px;
   }
 }
 .transition{
@@ -166,19 +164,20 @@ html,body {
 .col-25{
   position:relative;
   height:100vh;
-  width:19%;
+  width:25%;
   border-right:1px solid #111;
   margin:0;
   padding:0;
   float:left;
   z-index: 10;
   margin-bottom: -100px;
+  overflow:scroll;
 }
 .col-75{
   position:relative;
-  height:90%;
-  width:80%;
-  margin-left:20%;
+  height:90vh;
+  width:65%;
+  margin-left:30%;
   padding:0;
 }
 .classInput{
@@ -310,41 +309,16 @@ html,body {
   background:#C3FDB8;
 }
 
-.alert-box {
-    color:#555;
-    border-radius:10px;
-    padding:10px 15px;
-    margin:10px;
-    opacity:1;
-    line-height: 20px;
-  }
-  .alert-box span {
-    font-weight:bold;
-    text-transform:uppercase;
-  }
-  .error {
-    background:#ffecec;
-    border:1px solid #f5aca6;
-  }
-
-.alert-box.ng-hide-add.ng-hide-add-active,
-.alert-box.ng-hide-remove.ng-hide-remove-active {
-  transition:all linear 0.5s;
-}
-
-.alert-box.ng-hide {
-  line-height:0;
-  opacity:0;
-  padding:0 10px;
-}
 
 @media print{
   .header{
     display:none !important;
   }
   .col-25{
+    display:block;
     float:left;
-    width:22%;
+    width:20%;
+    overflow:visible
   }
   .button{
     display:none !important;
@@ -355,9 +329,9 @@ html,body {
   .col-75{
     position:absolute;
     top:0;
-    right:50px;
+    right:0;
     float:right;
-    width:65%;
+    width:67%;
     margin:0;
 
   }
@@ -388,60 +362,6 @@ html,body {
   font-family: 'Audiowide', cursive;
 }
 
-.loader{
-  height:80px;
-  width:80px;
-  position:relative;
-  left:50%;
-  top:40vh;
-  margin-left:-80px;
-  margin-top:-80px;
-  .spin {
-    height:80px;
-    width:80px;
-    animation:myspin 1s ease infinite;
-    
-    &, &:before {
-      box-sizing:border-box;
-      border:5px solid blue;
-      border-left-color:#e86275;
-      border-top-color:#5a72af;
-      border-right-color:#8cdc6e;
-      border-bottom-color:#ee8c4a;
-      border-radius:50%;
-      position:absolute;
-      display:block;
-      
-    }
-    
-    &:before{
-      content:" ";
-      left:50%;
-      top:50%;
-      height:96px;
-      width:96px;
-      margin:-48px;
-      border-width:6px;
-      border-left-color:rgba(0,0,0,0);
-      border-right-color:rgba(0,0,0,0);
-      border-top-color:rgba(0,0,0,0);
-      border-bottom-color:rgba(0,0,0,.6);
-      opacity:1;
-      animation:myspin 1s reverse ease infinite;
-    }
-  }
-}
-
-@-webkit-keyframes myspin {
-  from {
-    -webkit-transform:rotate(0deg);
-  }
-  
-  to {
-    -webkit-transform:rotate(360deg);
-  }
-}
-
 .marginBottom{
   margin-bottom:20px;
 }
@@ -452,10 +372,10 @@ html,body {
   position:absolute;
   width:100px;
   top:15px;
-  right:15px;
+  left:0px;
   text-align:center;
   border:solid 1px #666;
-  border-radius:20px;
+  // border-radius:20px;
   overflow:hidden;
   .keyHeader{
     padding:3px 0;
@@ -477,4 +397,11 @@ html,body {
   text-decoration: none;
   margin-top:10px;
   padding-left:10px;
+}
+.programming{
+  padding-left:35px;
+  color:#333;
+  font-size:10px;
+  font-style:italic;
+  margin-bottom: 0;
 }
